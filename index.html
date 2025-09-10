@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Curvature-Dimension for Autonomous Lagrangians</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/white.css" id="theme">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Alegreya+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+  /* Typography setup */
+  .reveal { font-family: 'Alegreya Sans', serif; }
+  .reveal p, .reveal li { font-weight: 400; }
+  .reveal strong, .reveal b { font-weight: 700; }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 700;
+  }
+  #title { text-align:center; }
+  #title h2 { font-weight: 800; }
+  #title h3 { font-weight: 700; }
+  #title p { font-weight: 400; }
+  .r-fit-text { font-size: clamp(18px, 2.6vw, 38px); }
+  .tiny { font-size: 75%; }
+  .small { font-size: 85%; }
+  .img-row { display:flex; gap:1rem; align-items:center; justify-content:center; }
+  .img-row img { max-height: 320px; }
+  .credit { color:#888; font-size: 70%; }
+  .math { font-size: 0.95em; }
+  </style>
+  <style>
+  h2 {
+    text-transform: none; /* prevents automatic uppercase */
+  }
+  </style>
+</head>
+<body>
+  <div class="reveal"><div class="slides">
+    <section id="title" data-background-color="#7FAEBA">
+    <h2>Curvature-Dimension for Autonomous Lagrangians</h2>
+    <h3>Ph.D. Thesis Defense</h3>
+    
+    <br>
+    <p>Weizmann Institute of Science<br>September 2025</p>
+    <br>
+
+    <p><strong>Rotem Assouline</strong></p>  
+    <p>Advisor: Prof. Bo'az Klartag</p>
+  </section>
+  
+  <section data-background-color="#7FAEBA">
+    <p style="font-size:70px"><b>Chapter 1</b>: Ricci curvature</p>
+  </section>
+
+  <section>
+    <div style="text-align: left;">
+    <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
+    <p> A <b> Riemannian manifold </b> is a smooth manifold equipped with a <b> Riemannian metric </b>, which is a smooth choice of inner product on each tangent space. </p>
+    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🥴 A Riemannian manifold is a space which looks like Euclidean space, but has a different way of measuring distances and angles. </p>
+    <p class="fragment"> A <b> geodesic </b> on a Riemannian manifold is (at least locally) the shortest path between a pair of points on the manifold. </p>
+    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🥴 Geodesics are like straight lines, but on a curved space. </p>
+    </div>
+    <svg viewBox="0 50 700 260" width="100%" height="auto"
+     xmlns="http://www.w3.org/2000/svg"
+     aria-label="Asymmetric 2D manifold surface without vertical margins">
+  <defs>
+    <!-- Silhouette -->
+    <path id="shape" d="
+      M90,190
+      C90,110 175,95 250,130
+      C295,151 315,138 338,138
+      C370,138 402,160 448,150
+      C520,134 610,150 610,195
+      C610,260 540,290 468,240
+      C432,215 392,230 352,245
+      C320,258 300,278 270,300
+      C210,345 90,325 90,190 Z"/>
+    <clipPath id="clip"><use href="#shape"/></clipPath>
+
+    <!-- Shading in #7FAEBA family -->
+    <radialGradient id="lambert" cx="46%" cy="50%" r="75%"
+      gradientTransform="matrix(1.25 0 0 .85 -.15 .10)">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="55%"  stop-color="#A5C6CF"/> <!-- lighter tint -->
+      <stop offset="100%" stop-color="#7FAEBA"/> <!-- main color -->
+    </radialGradient>
+
+    <linearGradient id="edgeFalloff" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#000000" stop-opacity="0.15"/>
+      <stop offset="22%"  stop-color="#000000" stop-opacity="0.04"/>
+      <stop offset="78%"  stop-color="#000000" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <radialGradient id="spec" cx="36%" cy="44%" r="26%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="60%"  stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base surface -->
+  <use href="#shape" fill="url(#lambert)"/>
+
+  <!-- Shading overlays -->
+  <g clip-path="url(#clip)">
+    <rect x="80" y="100" width="540" height="260" fill="url(#edgeFalloff)"/>
+    <ellipse cx="250" cy="190" rx="120" ry="65" fill="url(#spec)"/>
+  </g>
+  </svg>
+
+
+  </section>
+
+  <section>
+    <div style="text-align: left;">
+    <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
+    The <b> Ricci curvature</b> of a Riemannian metric  is a trace of the <b> Riemann Curvature tensor</b>. 
+    
+    <br>
+    Ricci curvature controls the way volume is distorted along families of geodesics. 
+    
+    <br>
+    More precisely, if \(v\) is a tangent vector at a point \(p \in M\), and \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_p = v \qquad \text{ and } \qquad \nabla V\vert_p = 0,\] then 
+    \(V\mathrm{div} V = -\mathrm{Ric}(V) .\)
+    <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🥴 If we take a little object and let it flow along parallel geodesics in the direction \(v\), then the second logarithmic derivative of the object's volume will be \(-\mathrm{Ric}(v)\)&nbsp. </p>
+    </div>
+  </section>
+
+  <section>
+    <iframe data-src="flow1.html" width="100%" height="700" style="border:0;"></iframe>
+  </section>
+
+  <section>
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 1: &nbsp The Euclidean plane &nbsp ( &nbsp\(\mathrm{Ric} = 0\) &nbsp )</h3>
+    <iframe data-src="flow0.html" width="100%" height="700" style="border:0;"></iframe>
+  </section>
+
+  <section>
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 2: &nbsp The hyperbolic plane &nbsp ( &nbsp\(\mathrm{Ric} = -1\) &nbsp )</h3>
+    <iframe data-src="flow2.html" width="100%" height="700" style="border:0;"></iframe>
+  </section>
+
+
+  
+
+  <section data-background-color="#7FAEBA">
+    <p style="font-size:70px"><b>Chapter 2</b>: Lagrangians</p>
+  </section>
+
+  <section data-background-iframe="nbody.html" data-background-interactive>
+
+  <div style="position:relative; z-index:1;">
+    \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}, \qquad d\ge 3\,\,k \ge 2.\]
+
+    
+  \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|},\]
+  <br>
+  \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
+
+  <br><br>
+  \(\,\,\,\mathrm{Ric}_{L,\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\)
+  </div>
+</section>
+
+
+
+  <section data-background-color="#7FAEBA">
+    <p style="font-size:70px"><b>Chapter 3</b>: Optimal Transport</p>
+  </section>
+
+<section>
+    <iframe data-src="GDI.html" width="100%" height="700" style="border:0;"></iframe>
+</section>
+
+</div></div>
+  
+  <script src="node_modules/reveal.js/dist/reveal.js"></script>
+  <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+  <script src="node_modules/reveal.js/plugin/math/math.js"></script>
+  <script>
+  Reveal.initialize({
+    hash: true,
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax2 ],
+
+    transition: 'fade',            // none | fade | slide | convex | concave | zoom
+    backgroundTransition: 'fade',  // same set as above
+    transitionSpeed: 'default'     // default | fast | slow
+  });
+  </script>
+</body>
+</html>

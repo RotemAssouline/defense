@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smooth Gaussian Transport</title>
+  <style>
+    body {
+      margin: 0;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas {
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="600"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+
+    const m0 = [0, 0], m1 = [4, 4];
+    const S0 = [[0.02, 0.008], [0.008, 0.01]];
+    const S1 = [[0.01, -0.006], [-0.006, 0.03]];
+
+    const xMin = -1, xMax = 7;
+    const yMin = -1, yMax = 7;
+    const totalFrames = 240;
+    let frame = 0;
+
+    function interpolate(a, b, t) {
+      return a.map((v, i) => (1 - t) * v + t * b[i]);
+    }
+
+    function matInterp(A, B, t) {
+      return A.map((row, i) => row.map((v, j) => (1 - t) * v + t * B[i][j]));
+    }
+
+    function matDet2x2(M) {
+      return M[0][0]*M[1][1] - M[0][1]*M[1][0];
+    }
+
+    function matInv2x2(M) {
+      const det = matDet2x2(M);
+      return [
+        [ M[1][1]/det, -M[0][1]/det ],
+        [-M[1][0]/det,  M[0][0]/det ]
+      ];
+    }
+
+    function gaussianPDF(x, y, mean, cov) {
+      const dx = [x - mean[0], y - mean[1]];
+      const inv = matInv2x2(cov);
+      const dot = dx[0]*(inv[0][0]*dx[0] + inv[0][1]*dx[1]) +
+                  dx[1]*(inv[1][0]*dx[0] + inv[1][1]*dx[1]);
+      const det = matDet2x2(cov);
+      return Math.exp(-0.5 * dot) / (2 * Math.PI * Math.sqrt(det));
+    }
+
+    function drawFrame(t) {
+      const mean = interpolate(m0, m1, t);
+      const cov = matInterp(S0, S1, t);
+      const image = ctx.createImageData(W, H);
+      const data = image.data;
+
+      let maxDensity = 0;
+      const densityMap = new Float32Array(W * H);
+
+      // First pass: compute all densities and max
+      for (let i = 0; i < H; i++) {
+        for (let j = 0; j < W; j++) {
+          const x = xMin + (j / W) * (xMax - xMin);
+          const y = yMin + ((H - i) / H) * (yMax - yMin);
+          const p = gaussianPDF(x, y, mean, cov);
+          densityMap[i * W + j] = p;
+          if (p > maxDensity) maxDensity = p;
+        }
+      }
+
+      // Second pass: draw pixels with log-scaled grayscale
+      for (let i = 0; i < H; i++) {
+        for (let j = 0; j < W; j++) {
+          const p = densityMap[i * W + j];
+          const normalized = Math.log(1 + 50 * p) / Math.log(1 + 50 * maxDensity); // log scale
+          const val = Math.floor(255 * (1 - normalized));  // invert for black-on-white
+          const idx = 4 * (i * W + j);
+          data[idx] = val;
+          data[idx+1] = val;
+          data[idx+2] = val;
+          data[idx+3] = 255;
+        }
+      }
+
+      ctx.putImageData(image, 0, 0);
+    }
+
+    function animate() {
+      const t = (frame % totalFrames) / totalFrames;
+      drawFrame(t);
+      frame++;
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
