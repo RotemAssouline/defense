@@ -51,7 +51,7 @@
   </section>
   
   <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Chapter 1</b>: Lagrangians</p>
+    <p style="font-size:70px"><b>Part 1</b>: Lagrangians</p>
   </section>
 
   <section>
@@ -62,7 +62,7 @@
     </p>
     An <b> extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints.
     <br>
-    <p style="color: #7FAEBA;" class="fragment">🥴 A Lagrangian assigns a value to each position and velocity. An extremal is a path for which the sum of these values over the entire journey is the smallest possible.</p>
+    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🥴 A Lagrangian assigns a value to each position and velocity. An extremal is a path for which the integral of these values over the entire journey is the smallest possible.</p>
     </div>
   </section>
 
@@ -70,36 +70,95 @@
     <div style="text-align: left;">
     <h3 style="color: #7FAEBA">examples</h3>
     <ul>
-      <li> Lagrangians of the form \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
+      <li> \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
         <ul>
-          <li><b>Riemannian metrics</b> - just kinetic energy;<br> action ~ length\(^2\), extremals - geodesics.</li>
-          <li><b> Mechanical Lagrangians</b> - \(V\) is a potential depending only on position.</li>
-          <li> <b>Electromagnetic Lagrangians</b> - \(V\) is an affine function of the velocity.</li>
+          <li><b>Riemannian metrics</b>: just kinetic energy;<br> action ~ length\(^2\), extremals - geodesics.</li>
+          <li><b> Mechanical Lagrangians</b>: \(V\) is a potential depending only on position.</li>
         </ul>
       </li>
-      <li> Finsler metrics: 2-homogeneous in the velocity</li>
-      <li> \(\phi(F)\), where \(F\) is a Finsler metric.</li>
+      <li> <b>Electromagnetic Lagrangians</b>: \(L = T + qA\cdot \mathrm{v}\)&nbsp .</li>
+      <li> <b>Finsler metrics</b>: 2-homogeneous in the velocity.</li>
+      <li> <b>Isotropic: &nbsp </b></f>\(\phi(F)\), where \(F\) is Riemannian/Finslerian.</li>
     </ul>
     </div>
   </section>
 
+  <section>
+    <div style="text-align: left;">
+      The <b> Hamiltonian </b> associated to a Lagrangian \(L\) is the function \(H\) on \(T^*M\) defined by
+      \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]
+      The tangent vector where the above supremum is achieved is denoted by \(\mathcal{L}p\), and we call the map \(\mathcal{L} : T^*M \to T_xM\) the <b> Legendre transform </b> associated to \(L\).
+      <br>
+      The <b> energy </b> is the function on \(TM\) defined by
+      \[E(v) : = H(\mathcal{L}^{-1} v), \qquad v \in TM.\]
+    </div>
+  </section>
+
   <section data-background-iframe="nbody.html" data-background-interactive>
+    <div style="position:relative; z-index:1;">
+      \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
 
-  <div style="position:relative; z-index:1;">
-    \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
+      
+    \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \underbrace{\sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|}}_{U},\]
+    <br>
+    \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
 
-    
-  \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \underbrace{\sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|}}_{U},\]
-  <br>
-  \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
+    <br><br>
+    \(\,\,\,\mathrm{Ric}_{\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\)
+    </div>
+  </section>
 
-  <br><br>
-  \(\,\,\,\mathrm{Ric}_{\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\)
-  </div>
-</section>
+    <section data-background-iframe="magnetic.html" data-background-interactive>
+    <div style="position:relative; z-index:1;">
+    \[L = \frac{|v|^2}{2} + \frac12 + A(v),\]
+    <br>
+    \(A\) - Magnetic field
+  </section>
+
 
   <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Chapter 2</b>: Ricci curvature</p>
+    <p style="font-size:70px"><b>Part 2</b>: Optimal Transport</p>
+  </section>
+
+  <section>
+    <div style="text-align: left">
+      \(\mu_0,\mu_1\) - probability measures on some space \(\mathcal{X}\). <br>
+      \(\mathrm{c}: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\) &nbsp-  some cost function. <br>
+      The <b> optimal transport (Monge-Kantorovich) problem </b> is the problem of finding a map \(T:\mathcal{X}\to\mathcal{X}\) &nbsp minimizing 
+      \[ \int \mathrm{c}(x_0,T(x_0)) d\mu_0(x_0)\]
+      among all maps pushing forward \(\mu_0\) to \(\mu_1\).
+      <br>
+      Such \(T\) is called an <b> optimal transport map </b>.
+    <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🥴 Optimal transport seeks the most cost-effecient way to redistribute mass, goods, etc. from one configuration to another. </p>
+    </div>
+  </section>
+
+  <section>
+    <div style="text-align: left">
+      Given a Lagrangian \(L\) on a manifold \(M\), we can define a cost function by setting
+      \[\mathrm{c}(x_0,x_1) : = \inf_\gamma \mathrm{A}(\gamma), \qquad x_0,x_1 \in M,\]
+      where the infimum is over all curves \(\gamma\) joining \(x_0\) to \(x_1\), and \(\mathrm{A}\) is the action. 
+      <br>
+      <br>
+      <p class = "fragment">If \(L\) is a Riemannian metric, then \(\mathrm{c}\) is distance.</p>
+    </div>
+  </section>
+
+  <section>
+    <div style="text-align: left">
+      <p><b>Theorem:</b>
+          <span style="color: gray;">Under classical assumptions on the Lagrangian \(L\),</span> for every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), there exists an optimal transport map \(T\) from \(\mu_0\) to \(\mu_1\). In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that 
+          <ul>
+            <li> \(T_0\) is the identity map and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\);</li>
+            <li> for each \(x \in M\), the curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is an action-minimizing extremal of \(L\).</li>
+          </ul>
+      </p>
+    </div>
+  </section>
+
+
+  <section data-background-color="#7FAEBA">
+    <p style="font-size:70px"><b>Part 3</b>: Ricci curvature</p>
   </section>
 
   <section>
@@ -192,10 +251,6 @@
   </section>
 
 
-
-  <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Chapter 3</b>: Optimal Transport</p>
-  </section>
 
 <section>
     <iframe data-src="GDI.html" width="100%" height="700" style="border:0;"></iframe>
