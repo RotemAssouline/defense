@@ -51,7 +51,40 @@
   </section>
   
   <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Chapter 1</b>: Ricci curvature</p>
+    <p style="font-size:70px"><b>Chapter 1</b>: Lagrangians</p>
+  </section>
+
+  <section>
+    <div style="text-align: left;">
+    <p>
+      A <b> Lagrangian </b> \(L\) on a manifold \(M\) is a smooth function on the tangent bundle \(TM\). The <b> action </b> of a curve \(\gamma:[0,T]\to M \) &nbsp is:
+      \[\mathrm{A}(\gamma) : = \int_0^T L(\dot\gamma(t))dt.\]
+    </p>
+    An <b> extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints.
+    <br>
+    <p style="color: #7FAEBA;" class="fragment">🥴 A Lagrangian assigns a value to each position and velocity. An extremal is a path for which sum these values over the entire journey is the smallest possible.</p>
+    </div>
+  </section>
+
+  
+
+  <section data-background-iframe="nbody.html" data-background-interactive>
+
+  <div style="position:relative; z-index:1;">
+    \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
+
+    
+  \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|},\]
+  <br>
+  \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
+
+  <br><br>
+  \(\,\,\,\mathrm{Ric}_{\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\)
+  </div>
+</section>
+
+  <section data-background-color="#7FAEBA">
+    <p style="font-size:70px"><b>Chapter 2</b>: Ricci curvature</p>
   </section>
 
   <section>
@@ -142,28 +175,6 @@
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 2: &nbsp The hyperbolic plane &nbsp ( &nbsp\(\mathrm{Ric} = -1\) &nbsp )</h3>
     <iframe data-src="flow2.html" width="100%" height="700" style="border:0;"></iframe>
   </section>
-
-
-  
-
-  <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Chapter 2</b>: Lagrangians</p>
-  </section>
-
-  <section data-background-iframe="nbody.html" data-background-interactive>
-
-  <div style="position:relative; z-index:1;">
-    \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}, \qquad d\ge 3\,\,k \ge 2.\]
-
-    
-  \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|},\]
-  <br>
-  \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
-
-  <br><br>
-  \(\,\,\,\mathrm{Ric}_{L,\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\)
-  </div>
-</section>
 
 
 

@@ -30,14 +30,14 @@ const masses = [];
 // === Initial Conditions ===
 function initSystem() {
   masses[0] = 1000; // Central massive body
-  positions[0] = { x: 0, y: 150 };
+  positions[0] = { x: 0, y: 0 };
   velocities[0] = { x: 0, y: 0 };
 
   for (let i = 1; i < numParticles; i++) {
     let angle = (i - 1) * (2 * Math.PI / (numParticles - 1));
     let radius = 100 + i * 20;
     let x = radius * Math.cos(angle);
-    let y = radius * Math.sin(angle) + 150;
+    let y = radius * Math.sin(angle);
     positions[i] = { x: x, y: y };
     masses[i] = 1;
 
