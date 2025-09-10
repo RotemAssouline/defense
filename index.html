@@ -62,11 +62,26 @@
     </p>
     An <b> extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints.
     <br>
-    <p style="color: #7FAEBA;" class="fragment">🥴 A Lagrangian assigns a value to each position and velocity. An extremal is a path for which sum these values over the entire journey is the smallest possible.</p>
+    <p style="color: #7FAEBA;" class="fragment">🥴 A Lagrangian assigns a value to each position and velocity. An extremal is a path for which the sum of these values over the entire journey is the smallest possible.</p>
     </div>
   </section>
 
-  
+  <section>
+    <div style="text-align: left;">
+    <h3 style="color: #7FAEBA">examples</h3>
+    <ul>
+      <li> Lagrangians of the form \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
+        <ul>
+          <li><b>Riemannian metrics</b> - just kinetic energy;<br> action ~ length\(^2\), extremals - geodesics.</li>
+          <li><b> Mechanical Lagrangians</b> - \(V\) is a potential depending only on position.</li>
+          <li> <b>Electromagnetic Lagrangians</b> - \(V\) is an affine function of the velocity.</li>
+        </ul>
+      </li>
+      <li> Finsler metrics: 2-homogeneous in the velocity</li>
+      <li> \(\phi(F)\), where \(F\) is a Finsler metric.</li>
+    </ul>
+    </div>
+  </section>
 
   <section data-background-iframe="nbody.html" data-background-interactive>
 
@@ -74,7 +89,7 @@
     \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
 
     
-  \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|},\]
+  \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \underbrace{\sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|}}_{U},\]
   <br>
   \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
 
