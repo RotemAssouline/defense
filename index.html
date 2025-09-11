@@ -74,47 +74,50 @@
     <div style="text-align: left;">
     <h3 style="color: #7FAEBA">examples</h3>
     <ul>
-      <li> \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
+      <li class = "fragment"> \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
         <ul>
-          <li><b>Riemannian metrics</b>: just kinetic energy;<br> action ~ length\(^2\), extremals - geodesics.</li>
-          <li><b> Mechanical Lagrangians</b>: \(V\) is a potential depending only on position.</li>
+          <li class = "fragment"><b>Riemannian metrics</b>: just kinetic energy;<br> action ~ length\(^2\), extremals - geodesics.</li>
+          <li class = "fragment"><b> Mechanical Lagrangians</b>: \(V\) is a potential depending only on position.</li>
         </ul>
       </li>
-      <li> <b>Electromagnetic Lagrangians</b>: \(L = T + qA\cdot \mathrm{v}\)&nbsp .</li>
-      <li> <b>Finsler metrics</b>: 2-homogeneous in the velocity.</li>
-      <li> <b>Isotropic: &nbsp </b></f>\(\phi(F)\), where \(F\) is Riemannian/Finslerian.</li>
+      <li class = "fragment"> <b>Electromagnetic Lagrangians</b>: \(L = T + qA\cdot \mathrm{v}\)&nbsp .</li>
+      <li class = "fragment"> <b>Finsler metrics</b>: 2-homogeneous in the velocity.</li>
+      <li class = "fragment"> <b>Isotropic: &nbsp </b></f>\(\phi(F)\), where \(F\) is Riemannian/Finslerian.</li>
     </ul>
     </div>
   </section>
 
   <section>
     <div style="text-align: left;">
-      The <b> Hamiltonian </b> associated to a Lagrangian \(L\) is the function \(H\) on \(T^*M\) defined by
-      \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]
-      The tangent vector where the above supremum is achieved is denoted by \(\mathcal{L}p\), and we call the map \(\mathcal{L} : T^*M \to T_xM\) the <b> Legendre transform </b> associated to \(L\).
-      <br>
-      The <b> energy </b> is the function on \(TM\) defined by
+      <p>The <b> Hamiltonian </b> associated to a Lagrangian \(L\) is the function \(H\) on \(T^*M\) defined by
+      \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]</p>
+      <p class = "fragment">The tangent vector where the above supremum is achieved is denoted by \(\mathcal{L}p\), and we call the map \(\mathcal{L} : T^*M \to T_xM\) the <b> Legendre transform </b> associated to \(L\).</p>
+      <p  class = "fragment">The <b> energy </b> is the function on \(TM\) defined by
       \[E(v) : = H(\mathcal{L}^{-1} v), \qquad v \in TM.\]
+      </p>
     </div>
   </section>
 
   <section>
     <div style="text-align: left;">
-    Given a smooth function \(u\) and a measure \(\mu\) with a smooth density on \(M\), we set
-    \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u).\]
-    The <b>Hamilton-Jacobi equation</b> is
+    <p>Given a smooth function \(u\) and a measure \(\mu\) with a smooth density on \(M\), we set
+    \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u).\]</p>
+    <p class = "fragment">The <b>Hamilton-Jacobi equation</b> is
     \[H(du) = 0.\]
-    If \(u\) is a solution to the H-J equation, then the integral curves of \(u\) are zero-energy extremals.
+    If \(u\) is a solution to the H-J equation, then the integral curves of \(u\) are zero-energy extremals.</p>
     </div>
   </section>
 
-  <section data-background-iframe="nbody.html" data-background-interactive>
+  <section style="position:relative; height:100vh; overflow:hidden;">
+    <h3 style="color: #7FAEBA">The many-body Lagrangian</h3>
+    <iframe src="nbody.html"
+          style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; z-index:-1;">
+  </iframe>
     <div style="position:relative; z-index:1;">
       \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
 
       
     \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \underbrace{\sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|}}_{U},\]
-    <br>
     \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
 
     <br><br>
@@ -123,6 +126,7 @@
   </section>
 
     <section data-background-iframe="magnetic.html" data-background-interactive>
+    <h3 style="color: #ffffff">The magnetic Lagrangian</h3>
     <div style="position:relative; z-index:1;">
     \[L(x,v) = \frac{|v|^2}{2} + \frac12 + A(x,v),\]
     <br>
@@ -239,65 +243,18 @@
     <p class="fragment"> A <b> geodesic </b> on a Riemannian manifold is (at least locally) the shortest path between a pair of points on the manifold. </p>
     <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🥴 Geodesics are like straight lines, but on a curved space. </p>
     </div>
-    <svg viewBox="0 50 700 260" width="100%" height="auto"
-     xmlns="http://www.w3.org/2000/svg"
-     aria-label="Asymmetric 2D manifold surface without vertical margins">
-  <defs>
-    <!-- Silhouette -->
-    <path id="shape" d="
-      M90,190
-      C90,110 175,95 250,130
-      C295,151 315,138 338,138
-      C370,138 402,160 448,150
-      C520,134 610,150 610,195
-      C610,260 540,290 468,240
-      C432,215 392,230 352,245
-      C320,258 300,278 270,300
-      C210,345 90,325 90,190 Z"/>
-    <clipPath id="clip"><use href="#shape"/></clipPath>
 
-    <!-- Shading in #7FAEBA family -->
-    <radialGradient id="lambert" cx="46%" cy="50%" r="75%"
-      gradientTransform="matrix(1.25 0 0 .85 -.15 .10)">
-      <stop offset="0%"   stop-color="#ffffff"/>
-      <stop offset="55%"  stop-color="#A5C6CF"/> <!-- lighter tint -->
-      <stop offset="100%" stop-color="#7FAEBA"/> <!-- main color -->
-    </radialGradient>
-
-    <linearGradient id="edgeFalloff" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#000000" stop-opacity="0.15"/>
-      <stop offset="22%"  stop-color="#000000" stop-opacity="0.04"/>
-      <stop offset="78%"  stop-color="#000000" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
-    </linearGradient>
-
-    <radialGradient id="spec" cx="36%" cy="44%" r="26%">
-      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.85"/>
-      <stop offset="60%"  stop-color="#ffffff" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-
-  <!-- Base surface -->
-  <use href="#shape" fill="url(#lambert)"/>
-
-  <!-- Shading overlays -->
-  <g clip-path="url(#clip)">
-    <rect x="80" y="100" width="540" height="260" fill="url(#edgeFalloff)"/>
-    <ellipse cx="250" cy="190" rx="120" ry="65" fill="url(#spec)"/>
-  </g>
-  </svg>
 
   </section>
 
   <section>
-    <div style="text-align: left;">
+    <div style="text-align: left; font-size: .8em;">
     <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
     The <b> Ricci curvature</b> of a Riemannian metric is a certain trace of the <b> Riemann Curvature tensor</b>, which accounts for the way volume is distorted along families of geodesics. </li>
 
     <p class = "fragment">
     If \(v\) is a tangent vector at a point \(p \in M\), and \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_p = v \qquad \text{ and } \qquad \nabla V\vert_p = 0,\] then 
-    \(V\mathrm{div} V = -\mathrm{Ric}(V) .\)</p>
+    <span style="color: #69919b">\(V\mathrm{div} V\vert_p = -\mathrm{Ric}(v)\) &nbsp;  .</span><span class = "fragment"> If \(V = \nabla u\) &nbsp; then <span style="color: #69919b">\((d\mathbf{L}u)(\nabla u)\vert_p = -\mathrm{Ric}(v)\) &nbsp;</span> &nbsp;.</span></p>
 
     <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🥴 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
     </div>
@@ -314,18 +271,30 @@
 
   <section>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 1: &nbsp The sphere</h3>
-      <iframe data-src="flow3.html" width="100%" height="600" style="border:0; translate: 0px -30px;"></iframe>
+      <iframe data-src="flowsph.html" width="90%" height="600" style="border:0; translate: 0px -30px;"></iframe>
   </section>
 
   <section>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp -1: &nbsp The hyperbolic plane</h3>
-    <iframe data-src="flow2.html" width="100%" height="700" style="border:0;"></iframe>
+    <iframe data-src="flowhyp.html" width="100%" height="600" style="border:0;"></iframe>
   </section>
 
-
-
-  <section>
-      <iframe data-src="GDI.html" width="100%" height="700" style="border:0;"></iframe>
+  <section style="position:relative; height:100vh; overflow:hidden;">
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Ricci curvature and optimal transport</h3>
+    <iframe src="GDI.html"
+          style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; z-index:-1; opacity:0.5; transform: scale(1.2); " >
+  </iframe>
+    <div style="text-align: left; font-size: .7em;">
+      <p><b>Theorem</b> (McCann, Cordero-Eruasquin-McCann-Schmuckenschläger '01, Sturm '06, Lott-Villani '07): Let \((M,g)\) &nbsp; be a complete Riemannian manifold. The following are equivalent:
+        <ul>
+          <li> \(\mathrm{Ric}_g \ge 0\) &nbsp;.</li>
+          <li> For every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measure on \(M\), the function
+            \[\lambda \mapsto \int_M \log f_\lambda d\mu_\lambda\]
+            is convex on \([0,1]\), &nbsp; where \[\mu_\lambda = f_\lambda\mathrm{Vol}_g\] is the displacement interpolation between \(\mu_0\) and \(\mu_1\) <b> with squared distance cost</b>.
+          </li>
+        </ul>
+      </p>
+    </div>
   </section>
 
   <section data-background-color="#7FAEBA">
@@ -333,7 +302,7 @@
   </section>
 
   <section>
-  <h3 style="color: #7FAEBA">data</h3>
+  <h3 style="color: #7FAEBA; font-size: 1.1em">data</h3>
   <div style="text-align: left; font-size: .9em;">
     <ul>
       <li class = "fragment">
@@ -356,22 +325,24 @@
   </section>
 
 <section>
+  <h3 style="color: #7FAEBA; font-size: .85em">Main result: Displacement Convexity for Lagrangians</h3>
   <div style="text-align: left; font-size: .8em;">
     <p><b>Theorem </b>(A. '25): Let \(N \in [n,\infty]\)&nbsp;. The following are equivalent:</p>
     <ul>
-      <li> \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\).</li>
-      <li> For every local solution \(u\) to the H-J equation \(H(du) = 0\) &nbsp;,
+      <li class = "fragment"> \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\) &nbsp;.</li>
+      <li class = "fragment"> For every local solution \(u\) to the H-J equation \(H(du) = 0\) &nbsp;,
         \[
           (d\mathbf{L}u)(\nabla u) + \frac{(\mathbf{L}u)^2}{N-1} \le 0.
         \]
-      <li> For every \(\mu_0,\mu_1\in\mathcal{P}_1(L)\) &nbsp; there exists a displacement interpolation \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\)&nbsp; between \(\mu_0\) and \(\mu_1\) such that the function
+      <li class = "fragment"> For every \(\mu_0,\mu_1\in\mathcal{P}_1(L)\) &nbsp; there exists a displacement interpolation \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\)&nbsp; between \(\mu_0\) and \(\mu_1\) such that the function
         \(
         \lambda \mapsto \mathrm{S}_{N}[\mu_\lambda|\mu]
         \)
         is convex.
       </li>
     </ul>
-    <p style="color: #7FAEBA; font-size: .8em">
+    <div class = "fragment">
+    <p style="color: #6c939e; font-size: .8em">
       \[
       \mathrm{S}_N[\mu_0|\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
       \quad (1 \lt N \lt \infty) \quad \text{and} \quad 
@@ -388,17 +359,19 @@
       \right\}.
       \]
     </p>
+    </div>
   </div>
 </section>
 
 <section>
+   <h3 style="color: #7FAEBA; font-size: .9em">The Brunn-Minkowski inequality for Lagrangians</h3>
   <div style="text-align: left; font-size: .8em;">
     <p><b>Theorem </b>(A. '25):
         Let \(N \in [n,\infty]\)&nbsp; , let \(A_0,A_1 \subseteq M\) &nbsp;  be Borel sets of positive measure and let \(0 \lt \lambda \lt 1 \)&nbsp; . Set
         \[
         A_\lambda : = \left\{\gamma(\lambda \ell) \, \bigg\vert \, \begin{array}{c} \gamma:[0,\ell] \to M \, \,  \text{ is a minimizing extremal,} \\ \gamma(0) \in A_0, \, \,\gamma(\ell) \in A_1\end{array}\right\}.
         \]
-        If \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(SM\)&nbsp; , then
+        If \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\)&nbsp; , then
         \[
             \mu(A_\lambda) \ge 
             \begin{cases}
@@ -411,7 +384,7 @@
 </section>
 
 <section>
-  <h3 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
+  <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
     <div style="text-align: left; font-size: .7em;">
     <p>Let \(\mathbb{C}\mathbf{H}^d\)&nbsp; denote the <b>complex hyperbolic space</b> of complex dimension \(d\)&nbsp;. 
     <br>  
@@ -425,23 +398,25 @@
     <!-- teal horizontal line (intersects big circle) -->
     <line x1="0" y1="150" x2="800" y2="150" stroke="#7FAEBA" stroke-width="2"/>
 
-    <!-- black horizontal line (tangency line) -->
-    <line x1="0" y1="300" x2="800" y2="300" stroke="#000000" stroke-width="2"/>
-
     <!-- tangent circles -->
     <circle cx="80"  cy="290" r="10" stroke="#7FAEBA" stroke-width="2" fill="none"/>
     <circle cx="180" cy="260" r="40" stroke="#7FAEBA" stroke-width="2" fill="none"/>
     <circle cx="400" cy="200" r="100" stroke="#7FAEBA" stroke-width="2" fill="none"/>
     <circle cx="570" cy="285" r="15" stroke="#7FAEBA" stroke-width="2" fill="none"/>
     <circle cx="700" cy="270" r="30" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+
+    
+    <!-- black horizontal line (tangency line) -->
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#000000" stroke-width="2"/>
   </svg>
 
 </section>
 
 <section>
+  <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
   <div style="text-align: left; font-size: .8em;">
     <p>
-    <b>Theorem</b>(A. '25):&nbsp;
+    <b>Theorem</b> (A. '25): &nbsp;
     Let \(A_0,A_1 \subseteq \mathbb{C}\mathbf{H}^d\)&nbsp; be Borel sets of positive measure and let \(0\le\lambda\le 1\)&nbsp;. Denote by \(A_\lambda\)&nbsp; the set of points of the form \(\gamma(\lambda \ell)\)&nbsp;, where \(\gamma:[0,\ell]\to \mathbb{C}\mathbf{H}^d\)&nbsp; is a unit-speed horocycle satisfying \(\gamma(0) \in A_0\)&nbsp; and \(\gamma(\ell) \in A_1\)&nbsp;. Then
     \[
     \mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},
@@ -450,6 +425,46 @@
     </div>
 </section>
 
+<section style="
+  position: relative;
+  background: url('media/Hopf_Fibration.png') center/cover no-repeat;
+  min-height: 400px;
+  background-size: contain;
+">
+  <div style="
+    position: relative;
+    z-index: 1;
+    font-size: .7em;
+  ">
+  <h2 style="color: #7FAEBA; font-size: 1em;">Example: Brunn-Minkowski for contact magnetic geodesics</h2>
+  <p>
+    Let \(S^{2d+1} = \{z \in \mathbb{C}^{d+1}\, \mid \, |z|=1\}\) &nbsp;&nbsp; and let \(0 \le s \lt 1\). &nbsp; We call <b>contact magnetic geodesics of strength \(s\)</b> the minimizing extremals of the Lagrangian
+    \[L(v) : = \frac{|v|_g^2 + 1}{2} - s\cdot \eta(v),\]
+    where \(g\) is the round metric and \(\eta\) is the <b>contact one-form</b>
+    \[\eta(v) = \mathrm{Re}\left\langle iz,v\right\rangle, \qquad v \in T_zS^{2d+1}, \,\, z \in S^{2d+1}.\]
+    </p>
+    <ul>
+        <li> Contact magnetic geodesics of strength $0$ are great circles.</li>
+        <li> Reeb trajectories  are contact magnetic geodesics of strength $s$ for all \(0 \le s \lt 1\).</li>
+    </ul>
+  </div>
+  <div style="
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.8); /* white with 40% opacity */
+    z-index: 0;
+  "></div>
+
+</section>
+
+<section>
+  <div style="text-align: left; font-size: .8em;">
+    <p><b>Theorem</b></b> (A. '25):
+    Let $A_0,A_1 \subseteq S^{2d+1}$&nbsp; be Borel sets of positive measure and let $0\le\lambda\le 1$&nbsp;. Denote by $A_\lambda$ the set of points of the form $\gamma(\lambda \ell)$, where $\gamma:[0,\ell]\to S^{2d+1}$ &nbsp; is a unit-speed contact magnetic geodesic of strength $s$ satisfying $\gamma(0) \in A_0$ and $\gamma(\ell) \in A_1$. Then
+    $$\mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},$$
+    where $\mathrm{Vol}$ &nbsp; denotes the spherical volume measure and $n = 2d+1$.
+    </p>
+</section>
 
 
 </div></div>

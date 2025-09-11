@@ -78,14 +78,14 @@
                 }
                 
                 const fieldValue = computeFieldVector(this.xPosition, this.yPosition);
-                const flowSpeed = 0.6;
+                const flowSpeed = 1;
                 
                 this.xPosition += fieldValue.x * flowSpeed * 2;
                 this.yPosition += fieldValue.y * flowSpeed * 2;
                 
                 // Keep particle if within extended boundary
-                return this.xPosition >= -250 && this.xPosition <= canvasW + 250 &&
-                       this.yPosition >= -250 && this.yPosition <= canvasH + 250;
+                return this.xPosition >= -500 && this.xPosition <= canvasW + 500 &&
+                       this.yPosition >= -500 && this.yPosition <= canvasH + 500;
             }
             
             renderParticle() {
