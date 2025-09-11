@@ -98,6 +98,16 @@
     </div>
   </section>
 
+  <section>
+    <div style="text-align: left;">
+    Given a smooth function \(u\) and a measure \(\mu\) with a smooth density on \(M\), we set
+    \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u).\]
+    The <b>Hamilton-Jacobi equation</b> is
+    \[H(du) = 0.\]
+    If \(u\) is a solution to the H-J equation, then the integral curves of \(u\) are zero-energy extremals.
+    </div>
+  </section>
+
   <section data-background-iframe="nbody.html" data-background-interactive>
     <div style="position:relative; z-index:1;">
       \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
@@ -133,13 +143,18 @@
 
   <section>
     <div style="text-align: left">
-      \(\mu_0,\mu_1\) - probability measures on some measure space \(\mathcal{X}\). <br>
-      \(\mathrm{c}: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\) &nbsp-  some cost function. <br>
-      The <b> optimal transport (Monge-Kantorovich) problem </b> is the problem of finding a map \(T:\mathcal{X}\to\mathcal{X}\) &nbsp minimizing 
-      \[ \int \mathrm{c}(x_0,T(x_0)) d\mu_0(x_0)\]
+      <p>
+      \((\mathcal X_0,\mu_0),(\mathcal X_1,\mu_1)\) &nbsp;- probability spaces. <br>
+      \(\mathrm{c}: \mathcal{X}_0 \times \mathcal{X}_1 \to \mathbb{R}\) &nbsp;&nbsp;-  cost function. 
+      </p>
+      <p  class="fragment">
+      The <b> optimal transport (Monge-Kantorovich) problem </b> is the problem of finding a map \(T:\mathcal{X}_0\to\mathcal{X}_1\) &nbsp minimizing 
+      \[ \int_{\mathcal X_0} \mathrm{c}(x_0,T(x_0)) d\mu_0(x_0)\]
       among all maps pushing forward \(\mu_0\) to \(\mu_1\).
-      <br>
+      </p>
+      <p class="fragment">
       Such \(T\) is called an <b> optimal transport map </b>.
+      </p>
       <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🥴 Optimal transport seeks the most cost-effecient way to redistribute mass, goods, etc. from one configuration to another. </p>
     </div>
   </section>
@@ -149,7 +164,6 @@
       Given a Lagrangian \(L\) on a manifold \(M\), we can define a cost function by setting
       \[\mathrm{c}(x_0,x_1) : = \inf_\gamma \mathrm{A}(\gamma), \qquad x_0,x_1 \in M,\]
       where the infimum is over all curves \(\gamma\) &nbsp joining \(x_0\) to \(x_1\), and \(\mathrm{A}\) is the action. 
-      <br>
       <br>
       <p class = "fragment">If \(L\) is a Riemannian metric, then \(\mathrm{c}\) is distance.</p>
     </div>
@@ -161,30 +175,55 @@
           <span style="color: gray;">Under classical assumptions on the Lagrangian \(L\),</span> for every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), there exists an optimal transport map \(T\) from \(\mu_0\) to \(\mu_1\). 
       </p>
     </div>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 900 314.343" width="730" style="enable-background:new 0 0 430 314.343; display: block; margin: 0 auto;" xml:space="preserve">
+      <path d="M0 314 Q 100 150 200 314 Z", fill = "#7FAEBA"/>
+      <g id="simple-sand-castle-pattern-4" transform="scale(0.8) translate(700,80)", fill = "#7FAEBA">
+        <path d="M430,314.343c-22.088-9.022-44.556-16.596-67.282-22.738c0.533-1.006,0.867-2.415,0.867-3.984V129.256h6.064
+          c1.777,0,3.217-1.603,3.217-3.581v-20.596c0-1.977-1.44-3.581-3.217-3.581h-14.476c-1.777,0-3.217,1.603-3.217,3.581v8.238h-16.88
+          v-8.238c0-1.977-1.44-3.581-3.217-3.581h-14.476c-1.777,0-3.217,1.603-3.217,3.581v8.238h-16.009v-8.238
+          c0-1.977-1.44-3.581-3.217-3.581h-14.476c-1.777,0-3.217,1.603-3.217,3.581v20.596c0,1.978,1.44,3.581,3.217,3.581h6.064v23.596
+          h-29.638V80.091c4.106-0.908,6.376-5.675,4.073-9.514L220.481,3.103c-2.483-4.138-8.48-4.138-10.962,0l-40.483,67.474
+          c-2.303,3.839-0.033,8.606,4.073,9.514v72.761h-29.638v-23.596h6.064c1.777,0,3.217-1.603,3.217-3.581v-20.596
+          c0-1.977-1.44-3.581-3.217-3.581H135.06c-1.777,0-3.217,1.603-3.217,3.581v8.238h-16.88v-8.238c0-1.977-1.44-3.581-3.217-3.581
+          H97.27c-1.777,0-3.217,1.603-3.217,3.581v8.238H78.044v-8.238c0-1.977-1.44-3.581-3.217-3.581H60.351
+          c-1.777,0-3.217,1.603-3.217,3.581v20.596c0,1.978,1.44,3.581,3.217,3.581h6.064v158.366c0,1.569,0.335,2.978,0.867,3.984
+          C44.556,297.747,22.088,305.322,0,314.343l0,0L430,314.343L430,314.343z M183.726,222.299c0-17.272,14.002-31.274,31.274-31.274h0
+          c17.272,0,31.274,14.002,31.274,31.274v50.535c-20.835-1.156-41.712-1.156-62.547,0V222.299z"/>
+      </g>
+      <g id="Layer_1">
+      </g>
+    </svg>
   </section>
+
+
+
   <section>
-      <div style="text-align: left">
-      <p>
-          In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that 
+    <div style="text-align: left; font-size: .7em">
+      <p> In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that </p>
           <ul>
             <li> \(T_0\) is the identity map and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\);</li>
-            <li> For each \(0 \le \lambda\le 1\), the map \(T_\lambda\) is an optimal transport map from \(\mu_0\) to \(\mu_\lambda : = (T_\lambda)_*\mu_0\) &nbsp. </li>
+            <li> For each \(0 \le \lambda\le 1\) &nbsp, the map \(T_\lambda\) is an optimal transport map from \(\mu_0\) &nbsp to \[\mu_\lambda : = (T_\lambda)_*\mu_0.\] </li>
             <li> for each \(x \in M\), the curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is an action-minimizing extremal of \(L\).</li>
             <li> There exists a viscosity subsolution \(u\) to the Hamilton-Jacobi equation, and \(\ell : M \to [0,\infty)\) &nbsp such that 
                 \[T_\lambda = \pi\circ\Phi_{\lambda\ell}\circ du \qquad \text{\(\mu_0\) -a.e.}\]
             </li>
           </ul>
-      </p>
+      <p>The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).</p>
     </div>
   </section>
 
   <section>
-    🥴 <p style="color: #7FAEBA; font-size: .9em; text-align: left">  We can solve the OT problem for costs arising from reasonable Lagrangians.</p>
+    🥴
+    <div style="text-align: left; font-size: .8em">
+    <p style="color: #7FAEBA">  We can solve OT for costs arising from reasonable Lagrangians.</p>
     <ul>
-      <li style="color: #7FAEBA; font-size: .9em" class="fragment">The solution describes not only where each piece of goods should end up, but also <i>along what path</i> it should be transported. </li>
-      <li style="color: #7FAEBA; font-size: .9em" class="fragment"> The resulting one-parameter family of maps (obtained by stopping the paths at intermediate times) are all optimal.</li>
-      <li style="color: #7FAEBA; font-size: .9em" class="fragment"> The above solution can be read off from a "guiding function", and the transport trajectories are "gradient curves" of this function (in a Lagrangian sense).</li>
+      <li style="color: #7FAEBA" class="fragment">The solution describes not only where each piece of goods should end up, but also <i>along what path</i> it should be transported. </li>
+      <li style="color: #7FAEBA" class="fragment"> The resulting one-parameter family of maps (obtained by stopping the paths at intermediate times) are all optimal.</li>
+      <li style="color: #7FAEBA" class="fragment"> The measure \(\mu_0\) and \(\mu_1\) are thus joined be an "optimal path in the space of measures", which we call the displacement interpolation between \(\mu_0\) and \(\mu_1\).</li>
+      <li style="color: #7FAEBA" class="fragment"> The above solution can be read off from a "guiding function", and the transport trajectories are "gradient curves" of this function (in a Lagrangian sense).</li>
     </ul>
+    </div>
   </section>
 
 
@@ -249,22 +288,18 @@
   </g>
   </svg>
 
-
   </section>
 
   <section>
     <div style="text-align: left;">
     <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
-    The <b> Ricci curvature</b> of a Riemannian metric  is a trace of the <b> Riemann Curvature tensor</b>. 
-    
-    <ul>
-      <li> Ricci curvature controls the way volume is distorted along families of geodesics. </li>
-    <li>
+    The <b> Ricci curvature</b> of a Riemannian metric is a certain trace of the <b> Riemann Curvature tensor</b>, which accounts for the way volume is distorted along families of geodesics. </li>
+
+    <p class = "fragment">
     If \(v\) is a tangent vector at a point \(p \in M\), and \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_p = v \qquad \text{ and } \qquad \nabla V\vert_p = 0,\] then 
-    \(V\mathrm{div} V = -\mathrm{Ric}(V) .\)</li>
-    
-    </ul>
-    <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🥴 If we take a little object and let it flow along parallel geodesics in the direction \(v\), then the second logarithmic derivative of the object's volume will be \(-\mathrm{Ric}(v)\)&nbsp. </p>
+    \(V\mathrm{div} V = -\mathrm{Ric}(V) .\)</p>
+
+    <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🥴 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
     </div>
   </section>
 
@@ -282,11 +317,137 @@
     <iframe data-src="flow2.html" width="100%" height="700" style="border:0;"></iframe>
   </section>
 
+    <section>
+      <iframe data-src="flow3.html" width="100%" height="700" style="border:0;"></iframe>
+  </section>
 
+  <section>
+      <iframe data-src="GDI.html" width="100%" height="700" style="border:0;"></iframe>
+  </section>
+
+  <section data-background-color="#7FAEBA">
+    <h2>Results</h2>
+  </section>
+
+  <section>
+  <h3 style="color: #7FAEBA">data</h3>
+  <div style="text-align: left; font-size: .9em;">
+    <ul>
+      <li class = "fragment">
+        A smooth manifold \(M\).
+      </li>
+      <li class = "fragment">
+        A Lagrangian \(L : TM \to \mathbb{R}\) &nbsp which is:
+        <ul>
+          <li class = "fragment"> Smooth away from the zero section </li>
+          <li class = "fragment"> Fiberwise strongly convex and superlinear </li>
+          <li class = "fragment"> Supercritical (i.e. closed curves have positive action) </li>
+        </ul>
+        <span class = "fragment">Every pair of points can be joined by a minimizing extremal. </span>
+      </li>
+      <li class = "fragment">
+        A reference measure \(\mu\) on \(M\) with a smooth, positive density.
+      </li>
+    </ul>
+  </div>
+  </section>
 
 <section>
-    <iframe data-src="GDI.html" width="100%" height="700" style="border:0;"></iframe>
+  <div style="text-align: left; font-size: .8em;">
+    <p><b>Theorem </b>(A. '25): Let \(N \in [n,\infty]\)&nbsp;. The following are equivalent:</p>
+    <ul>
+      <li> \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\).</li>
+      <li> For every local solution \(u\) to the H-J equation \(H(du) = 0\) &nbsp;,
+        \[
+          (d\mathbf{L}u)(\nabla u) + \frac{(\mathbf{L}u)^2}{N-1} \le 0.
+        \]
+      <li> For every \(\mu_0,\mu_1\in\mathcal{P}_1(L)\) &nbsp; there exists a displacement interpolation \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\)&nbsp; between \(\mu_0\) and \(\mu_1\) such that the function
+        \(
+        \lambda \mapsto \mathrm{S}_{N}[\mu_\lambda|\mu]
+        \)
+        is convex.
+      </li>
+    </ul>
+    <p style="color: #7FAEBA; font-size: .8em">
+      \[
+      \mathrm{S}_N[\mu_0|\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
+      \quad (1 \lt N \lt \infty) \quad \text{and} \quad 
+      \mathrm{S}_{\infty}[\mu_0|\mu] := \int_M \log f_0 \, d\mu_0.
+      \]
+    </p>
+    <p style="color:#888; font-size: .7em">
+      \[
+      \mathcal{P}_1(L):= \left\{
+      \begin{array}{c}
+      \text{Absolutely continuous Borel probability measures \(\mu_0\) on \(M\)}\\
+      \text{such that \(\int(|\mathrm{c}(x_0,\cdot)|+|\mathrm{c}(\cdot,x_0)|)d\mu_0 \lt \infty\) for some \(x_0 \in M\)}
+      \end{array}
+      \right\}.
+      \]
+    </p>
+  </div>
 </section>
+
+<section>
+  <div style="text-align: left; font-size: .8em;">
+    <p><b>Theorem </b>(A. '25):
+        Let \(N \in [n,\infty]\)&nbsp; , let \(A_0,A_1 \subseteq M\) &nbsp;  be Borel sets of positive measure and let \(0 \lt \lambda \lt 1 \)&nbsp; . Set
+        \[
+        A_\lambda : = \left\{\gamma(\lambda \ell) \, \bigg\vert \, \begin{array}{c} \gamma:[0,\ell] \to M \, \,  \text{ is a minimizing extremal,} \\ \gamma(0) \in A_0, \, \,\gamma(\ell) \in A_1\end{array}\right\}.
+        \]
+        If \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(SM\)&nbsp; , then
+        \[
+            \mu(A_\lambda) \ge 
+            \begin{cases}
+                \left((1-\lambda)\cdot\mu(A_0)^{1/N} + \lambda \cdot \mu(A_1)^{1/N}\right)^N & N \lt \infty\\
+                \mu(A_0)^{1-\lambda}\cdot\mu(A_1)^\lambda & N = \infty.
+            \end{cases}
+        \]
+    </p>
+  </div>
+</section>
+
+<section>
+  <h3 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
+    <div style="text-align: left; font-size: .7em;">
+    <p>Let \(\mathbb{C}\mathbf{H}^d\)&nbsp; denote the <b>complex hyperbolic space</b> of complex dimension \(d\)&nbsp;. 
+    <br>  
+    A <b>horocycle</b> is a curve \(\gamma\)&nbsp; satisfying
+    \[
+    \nabla_{\dot\gamma}\dot\gamma = \mathbf{J}\dot\gamma,
+    \]
+    where \(\mathbf{J}\)&nbsp; is the complex structure. For every  \(x,y \in \mathbb{C}\mathbf{H}^d\)&nbsp; there exists a unique horocycle \(\gamma:[0,T]\to \mathbb{C}\mathbf{H}^d\)&nbsp; satisfying \(\gamma(0) = x\)&nbsp; and \(\gamma(T) = y\)&nbsp;; it is contained in the unique complex geodesic (totally-geodesic copy of the hyperbolic plane) containing \(x\)&nbsp; and \(y\)&nbsp;.</p>
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 60 800 320">
+    <!-- teal horizontal line (intersects big circle) -->
+    <line x1="0" y1="150" x2="800" y2="150" stroke="#7FAEBA" stroke-width="2"/>
+
+    <!-- black horizontal line (tangency line) -->
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#000000" stroke-width="2"/>
+
+    <!-- tangent circles -->
+    <circle cx="80"  cy="290" r="10" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+    <circle cx="180" cy="260" r="40" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+    <circle cx="400" cy="200" r="100" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+    <circle cx="570" cy="285" r="15" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+    <circle cx="700" cy="270" r="30" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+  </svg>
+
+</section>
+
+<section>
+  <div style="text-align: left; font-size: .8em;">
+    <p>
+    <b>Theorem</b>(A. '25):&nbsp;
+    Let \(A_0,A_1 \subseteq \mathbb{C}\mathbf{H}^d\)&nbsp; be Borel sets of positive measure and let \(0\le\lambda\le 1\)&nbsp;. Denote by \(A_\lambda\)&nbsp; the set of points of the form \(\gamma(\lambda \ell)\)&nbsp;, where \(\gamma:[0,\ell]\to \mathbb{C}\mathbf{H}^d\)&nbsp; is a unit-speed horocycle satisfying \(\gamma(0) \in A_0\)&nbsp; and \(\gamma(\ell) \in A_1\)&nbsp;. Then
+    \[
+    \mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},
+    \]
+    where \(\mathrm{Vol}\)&nbsp; denotes the hyperbolic volume measure and \(n = 2d\)&nbsp;.</p>
+    </div>
+</section>
+
+
 
 </div></div>
   
