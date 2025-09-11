@@ -51,6 +51,10 @@
   </section>
   
   <section data-background-color="#7FAEBA">
+    <h2>Background</h2>
+  </section>
+
+  <section data-background-color="#7FAEBA">
     <p style="font-size:70px"><b>Part 1</b>: Lagrangians</p>
   </section>
 
@@ -110,9 +114,14 @@
 
     <section data-background-iframe="magnetic.html" data-background-interactive>
     <div style="position:relative; z-index:1;">
-    \[L = \frac{|v|^2}{2} + \frac12 + A(v),\]
+    \[L(x,v) = \frac{|v|^2}{2} + \frac12 + A(x,v),\]
     <br>
-    \(A\) - Magnetic field
+    \(A\) - Magnetic field - Linear in \(v\).
+    <br>
+    <br>
+    More generally:
+    \[ L = g/2 + 1/2 + \eta\]
+    where \(g\) is a Riemannian metric and \(\eta\) is a one-form. 
   </section>
 
 
@@ -120,16 +129,18 @@
     <p style="font-size:70px"><b>Part 2</b>: Optimal Transport</p>
   </section>
 
+  
+
   <section>
     <div style="text-align: left">
-      \(\mu_0,\mu_1\) - probability measures on some space \(\mathcal{X}\). <br>
+      \(\mu_0,\mu_1\) - probability measures on some measure space \(\mathcal{X}\). <br>
       \(\mathrm{c}: \mathcal{X} \times \mathcal{X} \to \mathbb{R}\) &nbsp-  some cost function. <br>
       The <b> optimal transport (Monge-Kantorovich) problem </b> is the problem of finding a map \(T:\mathcal{X}\to\mathcal{X}\) &nbsp minimizing 
       \[ \int \mathrm{c}(x_0,T(x_0)) d\mu_0(x_0)\]
       among all maps pushing forward \(\mu_0\) to \(\mu_1\).
       <br>
       Such \(T\) is called an <b> optimal transport map </b>.
-    <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🥴 Optimal transport seeks the most cost-effecient way to redistribute mass, goods, etc. from one configuration to another. </p>
+      <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🥴 Optimal transport seeks the most cost-effecient way to redistribute mass, goods, etc. from one configuration to another. </p>
     </div>
   </section>
 
@@ -137,7 +148,7 @@
     <div style="text-align: left">
       Given a Lagrangian \(L\) on a manifold \(M\), we can define a cost function by setting
       \[\mathrm{c}(x_0,x_1) : = \inf_\gamma \mathrm{A}(\gamma), \qquad x_0,x_1 \in M,\]
-      where the infimum is over all curves \(\gamma\) joining \(x_0\) to \(x_1\), and \(\mathrm{A}\) is the action. 
+      where the infimum is over all curves \(\gamma\) &nbsp joining \(x_0\) to \(x_1\), and \(\mathrm{A}\) is the action. 
       <br>
       <br>
       <p class = "fragment">If \(L\) is a Riemannian metric, then \(\mathrm{c}\) is distance.</p>
@@ -147,13 +158,33 @@
   <section>
     <div style="text-align: left">
       <p><b>Theorem:</b>
-          <span style="color: gray;">Under classical assumptions on the Lagrangian \(L\),</span> for every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), there exists an optimal transport map \(T\) from \(\mu_0\) to \(\mu_1\). In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that 
+          <span style="color: gray;">Under classical assumptions on the Lagrangian \(L\),</span> for every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), there exists an optimal transport map \(T\) from \(\mu_0\) to \(\mu_1\). 
+      </p>
+    </div>
+  </section>
+  <section>
+      <div style="text-align: left">
+      <p>
+          In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that 
           <ul>
             <li> \(T_0\) is the identity map and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\);</li>
+            <li> For each \(0 \le \lambda\le 1\), the map \(T_\lambda\) is an optimal transport map from \(\mu_0\) to \(\mu_\lambda : = (T_\lambda)_*\mu_0\) &nbsp. </li>
             <li> for each \(x \in M\), the curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is an action-minimizing extremal of \(L\).</li>
+            <li> There exists a viscosity subsolution \(u\) to the Hamilton-Jacobi equation, and \(\ell : M \to [0,\infty)\) &nbsp such that 
+                \[T_\lambda = \pi\circ\Phi_{\lambda\ell}\circ du \qquad \text{\(\mu_0\) -a.e.}\]
+            </li>
           </ul>
       </p>
     </div>
+  </section>
+
+  <section>
+    🥴 <p style="color: #7FAEBA; font-size: .9em; text-align: left">  We can solve the OT problem for costs arising from reasonable Lagrangians.</p>
+    <ul>
+      <li style="color: #7FAEBA; font-size: .9em" class="fragment">The solution describes not only where each piece of goods should end up, but also <i>along what path</i> it should be transported. </li>
+      <li style="color: #7FAEBA; font-size: .9em" class="fragment"> The resulting one-parameter family of maps (obtained by stopping the paths at intermediate times) are all optimal.</li>
+      <li style="color: #7FAEBA; font-size: .9em" class="fragment"> The above solution can be read off from a "guiding function", and the transport trajectories are "gradient curves" of this function (in a Lagrangian sense).</li>
+    </ul>
   </section>
 
 
@@ -226,12 +257,13 @@
     <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
     The <b> Ricci curvature</b> of a Riemannian metric  is a trace of the <b> Riemann Curvature tensor</b>. 
     
-    <br>
-    Ricci curvature controls the way volume is distorted along families of geodesics.. 
+    <ul>
+      <li> Ricci curvature controls the way volume is distorted along families of geodesics. </li>
+    <li>
+    If \(v\) is a tangent vector at a point \(p \in M\), and \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_p = v \qquad \text{ and } \qquad \nabla V\vert_p = 0,\] then 
+    \(V\mathrm{div} V = -\mathrm{Ric}(V) .\)</li>
     
-    <br>
-    More precisely, if \(v\) is a tangent vector at a point \(p \in M\), and \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_p = v \qquad \text{ and } \qquad \nabla V\vert_p = 0,\] then 
-    \(V\mathrm{div} V = -\mathrm{Ric}(V) .\)
+    </ul>
     <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🥴 If we take a little object and let it flow along parallel geodesics in the direction \(v\), then the second logarithmic derivative of the object's volume will be \(-\mathrm{Ric}(v)\)&nbsp. </p>
     </div>
   </section>
