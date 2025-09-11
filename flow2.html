@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Upper Half-Plane • 45s Loop</title>
   <style>
-    html, body { height: 100%; }
+    html, body { height: 80%; }
     body { margin: 0; background: #fff; }
-    canvas { display: block; width: 100vw; height: 100vh; }
+    canvas { display: block; width: 90vw; height: 90vh; }
   </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
     const canvas = document.getElementById('c');
     const ctx = canvas.getContext('2d');
     let dpr = window.devicePixelRatio || 1;
-    let viewScale = 0.4; // further zoomed out
+    let viewScale = 0.3; // further zoomed out
     let worldW = 0, worldH = 0; // world size in CSS px
 
     function applyWorldTransform() {
@@ -164,8 +164,8 @@
       const grid = 40; // world units
       const maxLen = 22, magScale = 0.03; // shorter arrows for a calmer field visualization // cap and scale magnitude for visibility
       ctx.globalAlpha = 0.6;
-      ctx.strokeStyle = '#6B9BD1';
-      ctx.fillStyle = '#6B9BD1';
+      ctx.strokeStyle = '#7FAEBA';
+      ctx.fillStyle = '#7FAEBA';
       ctx.lineWidth = 1.5;
       for (let x = -worldW/2 + grid/2; x < worldW/2; x += grid) {
         for (let y = grid/2; y < worldH; y += grid) {
