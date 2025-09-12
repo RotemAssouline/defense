@@ -65,7 +65,7 @@
                 this.yPosition = startY;
                 this.particleSize = 2;
                 this.trailPoints = [];
-                this.maxTrailLength = 600; // Longer trails for better visibility
+                this.maxTrailLength = 200; // Longer trails for better visibility
             }
             
             updateParticle() {
@@ -78,7 +78,7 @@
                 }
                 
                 const fieldValue = computeFieldVector(this.xPosition, this.yPosition);
-                const flowSpeed = 1;
+                const flowSpeed = 2;
                 
                 this.xPosition += fieldValue.x * flowSpeed * 2;
                 this.yPosition += fieldValue.y * flowSpeed * 2;
