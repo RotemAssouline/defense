@@ -70,7 +70,8 @@
     <path d="M 1698 32 L 1455 233 L 1932 623 L 2033 109 Z" fill="#e2e2e2" stroke="none"/>
     <text x = "0" y = "70" style="font-size: 100;font-family:'Alegreya'">(λ = 1/2)</text>
     <path d="M 287 212 L 152 433 L 495 500 Z" fill="#e2e2e2" stroke="none"/>
-    <path d="M 993 118 L 867 221 L 799 328 L 1045 533 L 1215 566 L 1269 304 L 1163 158 Z" fill="#ffb3c8" stroke="none"/>
+    <path d="M 993 118 L 867 221 L 799 328 L 1045 533 L 1215 566 L 1269 304 L 1163 158 Z" fill="#91c7d4" stroke="none"/>
+    <!-- Original color was #ffb3c8 -->
     <text x="300" y="360" text-anchor="middle" dominant-baseline="middle" style="font-size:100; font-family:'Alegreya'">A</text>
     <text x="1050" y="320" text-anchor="middle" dominant-baseline="middle" style="font-size:80; font-family:'Alegreya'">(1-λ)A + λB</text>
     <text x="1770" y="280" text-anchor="middle" dominant-baseline="middle" style="font-size:100; font-family:'Alegreya'">B</text>
@@ -84,180 +85,407 @@
       <p><b>Theorem</b> (Brunn-Minkowski-Lusternik) :</p> For every \(A,B \subseteq \mathbb{R}^n\) &nbsp; Borel, nonempty and every \(0 \lt \lambda \lt 1\) &nbsp;,
       \[\mathrm{Vol}((1-\lambda) A + \lambda B)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A)^{1/n} + \lambda\cdot\mathrm{Vol}(B)^{1/n}.\]
     </div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 2048 646">
-    <g>
-    <rect width="100%" height="100%" fill="white"/>
-    <path d="M 1698 32 L 1455 233 L 1932 623 L 2033 109 Z" fill="#e2e2e2" stroke="none"/>
-    <text x = "0" y = "70" style="font-size: 100;font-family:'Alegreya'">(λ = 1/2)</text>
-    <path d="M 287 212 L 152 433 L 495 500 Z" fill="#e2e2e2" stroke="none"/>
-    <path d="M 993 118 L 867 221 L 799 328 L 1045 533 L 1215 566 L 1269 304 L 1163 158 Z" fill="#ffb3c8" stroke="none"/>
-    <text x="300" y="360" text-anchor="middle" dominant-baseline="middle" style="font-size:100; font-family:'Alegreya'">A</text>
-    <text x="1050" y="320" text-anchor="middle" dominant-baseline="middle" style="font-size:80; font-family:'Alegreya'">(1-λ)A + λB</text>
-    <text x="1770" y="280" text-anchor="middle" dominant-baseline="middle" style="font-size:100; font-family:'Alegreya'">B</text>
+    <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .axis-text { font-family: Arial, sans-serif; font-size: 12px; fill: #666; }
+      .axis-label { font-family: Arial, sans-serif; font-size: 11px; fill: #888; }
+      .legend-text { font-family: Arial, sans-serif; font-size: 10px; fill: #666; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <!-- White background -->
+  <rect width="800" height="400" fill="white"/>
+
+  
+  <!-- Animation Panel (left side) -->
+  <g id="animation-panel">
+    <!-- Animation background -->
+    <rect x="50" y="50" width="300" height="300" fill="white"/>
+    
+    <!-- Animated shape -->
+    <rect id="animated-shape" 
+          x="125" y="125" 
+          width="150" height="150" 
+          fill="#91c7d4" 
+          stroke="#5A8A95" 
+          stroke-width="0"
+          rx="75" ry="75"/>
+  </g>
+  
+  <!-- Graph Panel (right side) -->
+  <g id="graph-panel" transform="translate(420, 20)">
+    
+    <!-- Legend -->
+    <!-- <text x="180" y="15" class="legend-text">Circle: 17,671px² | Square: 22,500px²</text>
+     -->
+    <!-- Graph area background -->
+    <rect x="40" y="30" width="320" height="280" fill="none" stroke="#f0f0f0"/>
+    
+    <!-- Grid lines -->
+    <g stroke="#f0f0f0" stroke-width="1" stroke-dasharray="3,3">
+      <!-- Vertical grid lines -->
+      <line x1="80" y1="30" x2="80" y2="310"/>
+      <line x1="120" y1="30" x2="120" y2="310"/>
+      <line x1="160" y1="30" x2="160" y2="310"/>
+      <line x1="200" y1="30" x2="200" y2="310"/>
+      <line x1="240" y1="30" x2="240" y2="310"/>
+      <line x1="280" y1="30" x2="280" y2="310"/>
+      <line x1="320" y1="30" x2="320" y2="310"/>
+      
+      <!-- Horizontal grid lines -->
+      <line x1="40" y1="70" x2="360" y2="70"/>
+      <line x1="40" y1="110" x2="360" y2="110"/>
+      <line x1="40" y1="150" x2="360" y2="150"/>
+      <line x1="40" y1="190" x2="360" y2="190"/>
+      <line x1="40" y1="230" x2="360" y2="230"/>
+      <line x1="40" y1="270" x2="360" y2="270"/>
     </g>
-    </svg>
+    
+    <!-- Axes -->
+    <line x1="40" y1="310" x2="360" y2="310" stroke="#333" stroke-width="1"/>
+    <line x1="40" y1="30" x2="40" y2="310" stroke="#333" stroke-width="1"/>
+    
+    <!-- X-axis ticks and labels -->
+    <g class="axis-text">
+      <line x1="40" y1="310" x2="40" y2="315" stroke="#333"/>
+      <text x="40" y="330" text-anchor="middle">0</text>
+      
+      <line x1="120" y1="310" x2="120" y2="315" stroke="#333"/>
+      <text x="120" y="330" text-anchor="middle">1</text>
+      
+      <line x1="200" y1="310" x2="200" y2="315" stroke="#333"/>
+      <text x="200" y="330" text-anchor="middle">2</text>
+      
+      <line x1="280" y1="310" x2="280" y2="315" stroke="#333"/>
+      <text x="280" y="330" text-anchor="middle">3</text>
+      
+      <line x1="360" y1="310" x2="360" y2="315" stroke="#333"/>
+      <text x="360" y="330" text-anchor="middle">4</text>
+    </g>
+    
+    <!-- Y-axis ticks and labels -->
+    <g class="axis-text">
+      <line x1="35" y1="310" x2="40" y2="310" stroke="#333"/>
+      <text x="32" y="314" text-anchor="end">0</text>
+      
+      <line x1="35" y1="230" x2="40" y2="230" stroke="#333"/>
+      <text x="32" y="234" text-anchor="end">10k</text>
+      
+      <line x1="35" y1="150" x2="40" y2="150" stroke="#333"/>
+      <text x="32" y="154" text-anchor="end">20k</text>
+      
+      <line x1="35" y1="70" x2="40" y2="70" stroke="#333"/>
+      <text x="32" y="74" text-anchor="end">25k</text>
+    </g>
+    
+    <!-- Axis labels -->
+    <!-- <text x="200" y="355" text-anchor="middle" class="axis-label">Time (seconds)</text> -->
+
+    <text x="0" y="150" text-anchor="middle" class="axis-label" transform="rotate(-90, 15, 170)" style="font-size: .5em;">Area (px²)</text>
+    
+    <!-- Area curve path -->
+    <path id="area-curve" stroke="#7FAEBA" stroke-width="2" fill="none" d=""/>
+    
+    <!-- Current time indicator -->
+    <line id="time-indicator" x1="40" y1="30" x2="40" y2="310" stroke="#E74C3C" stroke-width="2" stroke-dasharray="5,5"/>
+  </g>
+  
+  <script type="text/javascript">
+    <![CDATA[
+    // Animation parameters
+    const animationDuration = 4000; // 4 seconds in milliseconds
+    let startTime = Date.now();
+    
+    // Get references to animated elements
+    const animatedShape = document.getElementById('animated-shape');
+    const timeIndicator = document.getElementById('time-indicator');
+    const areaCurve = document.getElementById('area-curve');
+    
+    // Function to calculate corner radius based on time (circle->square->circle)
+    function getCurrentRadius(t) {
+      const normalizedTime = t / animationDuration;
+      if (normalizedTime <= 0.5) {
+        // First half: 75 to 0 (circle to square)
+        return 75 - (normalizedTime / 0.5) * 75;
+      } else {
+        // Second half: 0 to 75 (square to circle)
+        return ((normalizedTime - 0.5) / 0.5) * 75;
+      }
+    }
+    
+    // Function to calculate area of rounded rectangle
+    function calculateArea(rx, width = 150, height = 150) {
+      const maxR = Math.min(width, height) / 2;
+      const clampedRx = Math.min(rx, maxR);
+      
+      if (clampedRx === 0) {
+        return width * height; // Square
+      }
+      
+      if (clampedRx === maxR) {
+        return Math.PI * maxR * maxR; // Circle
+      }
+      
+      // Rounded rectangle
+      const rectangleArea = width * height;
+      const cornerCuts = 4 * clampedRx * clampedRx;
+      const cornerCircles = Math.PI * clampedRx * clampedRx;
+      
+      return rectangleArea - cornerCuts + cornerCircles;
+    }
+    
+    // Generate the complete curve path
+    function generateCurvePath() {
+      let path = '';
+      const steps = 200;
+      
+      for (let i = 0; i <= steps; i++) {
+        const t = (i / steps) * animationDuration;
+        const rx = getCurrentRadius(t);
+        const area = calculateArea(rx);
+        
+        // Convert to graph coordinates
+        const x = 40 + (t / animationDuration) * 320; // 320px wide graph
+        const y = 310 - (area / 25000) * 280; // 280px tall graph, 25000 max area
+        
+        if (i === 0) {
+          path += `M ${x} ${y}`;
+        } else {
+          path += ` L ${x} ${y}`;
+        }
+      }
+      
+      return path;
+    }
+    
+    // Set the static curve path
+    areaCurve.setAttribute('d', generateCurvePath());
+    
+    // Animation loop
+    function animate() {
+      const currentTime = (Date.now() - startTime) % animationDuration;
+      
+      // Update shape
+      const currentRadius = getCurrentRadius(currentTime);
+      animatedShape.setAttribute('rx', currentRadius);
+      animatedShape.setAttribute('ry', currentRadius);
+      
+      // Update time indicator
+      const indicatorX = 40 + (currentTime / animationDuration) * 320;
+      timeIndicator.setAttribute('x1', indicatorX);
+      timeIndicator.setAttribute('x2', indicatorX);
+      
+      requestAnimationFrame(animate);
+    }
+    
+    // Start animation
+    animate();
+    ]]>
+  </script>
+  </svg>
   </section>
 
 
-<section data-auto-animate class = "bm">
-  
-  <svg viewBox="0 0 600 400" style="width:100%;height:auto;display:block;margin:auto;font-family:'Alegreya Sans',sans-serif">
-  <style>
-    .bm .fragment{opacity:0;visibility:hidden;transition:opacity 600ms ease}
-    .bm .fragment.visible{opacity:1;visibility:visible}
-  </style>
+<section data-auto-animate data-auto-animate-id="bm">
+  <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
+
     <!-- Top -->
-    <g data-id="top">
-      <rect x="100" y="70" width="400" height="60" rx="14" fill="#7FAEBA"/>
-      <text x="300" y="100" text-anchor="middle" dominant-baseline="middle" style="font-weight:700">Brunn - Minkowski</text>
-    </g>
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%;">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
+        Brunn - Minkowski
+      </div>
+    </div>
 
-    <!-- Left branch (Volume) -->
-    <line data-id="left-conn" x1="300" y1="130" x2="130" y2="300" stroke="black"  stroke-width="1.2" marker-end="url(#arrow)"/>
-      <g data-id="vol">
-        <rect x="0" y="300" width="200" height="50" rx="14" fill="#7FAEBA"/>
-        <text x="100" y="325" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Volume</text>
-      </g>
+    <!-- Volume -->
+    <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: 1" class = "fragment">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Volume
+      </div>
+    </div>
 
-    <!-- Right branch (Summation) -->
-      <g data-id="sum">
-        <line data-id="right-conn" x1="300" y1="130" x2="500" y2="300" stroke="black"   stroke-width="1.2" marker-end="url(#arrow)"/>
-        <rect x="400" y="300" width="200" height="50" rx="14" fill="#7FAEBA"/>
-        <text x="500" y="325" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Averaging</text>
-      </g>
+    <!-- Averaging -->
+    <div data-id="sum" style="position:absolute;left:55%;top:60%;width:45%;height:20%; opacity: 1" class = "fragment">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Averaging
+      </div>
+    </div>
 
-    <defs>
-      <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse">
-        <path d="M0,0 L10,5 L0,10 z" fill="black"/>
-      </marker>
-    </defs>
-  </svg>
+  </div>
 </section>
 
-<!-- Slide 2 (Volume rises; others fade; new panel appears) -->
-<section data-auto-animate>
-  <svg viewBox="0 0 600 400" style="width:100%;height:auto;display:block;margin:auto;font-family:'Alegreya Sans',sans-serif">
-    <!-- Keep top and right items but fade them out -->
-    <g data-id="top" opacity="0">
-      <rect x="100" y="70" width="400" height="60" rx="14" fill="#7FAEBA"/>
-      <text x="300" y="100" text-anchor="middle" dominant-baseline="middle" style="font-weight:700">Brunn - Minkowski</text>
-    </g>
-    
-    <g data-id="vol">
-        <rect x="0" y="0" width="200" height="50" rx="14" fill="#7FAEBA"/>
-        <text x="100" y="25" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Volume</text>
-    </g>
+<!-- SLIDE 2 -->
+<section data-auto-animate data-auto-animate-id="bm">
+  <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
 
-    <g data-id="sum" opacity="0">
-        <rect x="400" y="300" width="200" height="50" rx="14" fill="#7FAEBA"/>
-        <text x="500" y="325" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Averaging</text>
-    </g>
-    
-    <line data-id="left-conn" x1="300" y1="130" x2="130" y2="300" stroke="black"  stroke-width="1.2" marker-end="url(#arrow)" opacity="0"/>
-    <line data-id="right-conn" x1="300" y1="130" x2="500" y2="300" stroke="black"   stroke-width="1.2" marker-end="url(#arrow)" opacity="0"/>
+    <!-- Top (kept for matching, hidden) -->
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%; opacity:.05">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
+        Brunn - Minkowski
+      </div>
+    </div>
 
+    <!-- Volume moved up to (0,0) -->
+    <div data-id="vol" style="position:absolute;left:0%;top:0%;width:45%;height:20%;">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Volume
+      </div>
+    </div>
 
+    <!-- Averaging -->
+    <div data-id="sum" style="position:absolute;left:55%;top:60%;width:45%;height:20%; opacity:.05">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Averaging
+      </div>
+    </div>
 
-    <!-- New large panel appears under Volume -->
-    <g data-id="panel">
-      <rect x="0" y="70" width="600" height="300" rx="16" fill="#7FAEBA" opacity="0.15" stroke="#7FAEBA"/>
-      <foreignObject x="20" y="100" width="460" height="240">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="line-height:1.4 ; text-align:left">
-          <p style="font-size:.6em; text-align:left; ">
-            Replace \(\mathrm{Vol}\) with \(\mu = e^{-\psi}\mathrm{Vol}\)&nbsp;&nbsp;.
-          </p>
-          <ul style="margin:0; font-size:.6em; text-align:left; ">
-            <li>Replace \(\mathrm{Vol}\) with \(\mu = e^{-\psi}\mathrm{Vol}\)&nbsp;&nbsp;.</li>
-            <li>Point two…</li>
-            <li>Point three…</li>
-          </ul>
-        </div>
-      </foreignObject>
-    </g>
+    <!-- Panel under Volume -->
+    <div data-id="panel" style="position:absolute;left:0%;top:25%;width:100%;height:75%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
+    <div style="position:absolute;left:5%;top:30%;width:76.6667%;height:60%;line-height:1.4;text-align:left; font-size: .9em;">
+        <p class = "fragment">Replace \( \mathrm{Vol} \) with \( \mu = e^{-\psi}\mathrm{Vol} \) &nbsp;.</p>
+        <p class = "fragment">Characterization of measures \(\mu\) satisfying Brunn-Minkowski inequalities in terms of the function \(\psi\) (log concave, \(s\)-concave) <span style="color: #69919b ; font-size: .8em">(Borell '75, Brascamp-Lieb '76)</span></p>
+    </div>
 
-    <defs>
-      <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse">
-        <path d="M0,0 L10,5 L0,10 z" fill="black"/>
-      </marker>
-    </defs>
-  </svg>
+  </div>
 </section>
 
 
-<section data-auto-animate>
-  <svg viewBox="0 0 600 400" style="width:100%;height:auto;display:block;margin:auto;font-family:'Alegreya Sans',sans-serif">
-    <!-- Volume moves to top-center and scales up slightly -->
-    <g data-id="sum">
-        <rect x="0" y="0" width="200" height="60" rx="14" fill="#7FAEBA"/>
-        <text x="100" y="30" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Averaging</text>
-    </g>
+<section data-auto-animate data-auto-animate-id="bm">
+  <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
 
-    <!-- New large panel appears under Volume -->
-    <g data-id="panel2">
-      <rect x="0" y="70" width="600" height="320" rx="16" fill="#7FAEBA" opacity="0.15" stroke="#7FAEBA"/>
-      <foreignObject x="10" y="90" width="570" height="400">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="line-height:1.4 ; text-align:left">
-          <ul style="margin:0; font-size:.5em; text-align:left; ">
+    <!-- Top (kept for matching, hidden) -->
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%; opacity:.05">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
+        Brunn - Minkowski
+      </div>
+    </div>
+
+    <!-- Volume -->
+    <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: .05">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Volume
+      </div>
+    </div>
+
+    <!-- Averaging -->
+    <div data-id="sum" style="position:absolute;left:55%;top:0%;width:45%;height:20%;">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Averaging
+      </div>
+    </div>
+
+    <!-- Panel under Volume -->
+    <div data-id="panel" style="position:absolute;left:0%;top:25%;width:100%;height:75%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
+    <div style="position:absolute;left:0%;top:30%;width:95%;height:60%;line-height:1.4;text-align:left;font-size:.9em;">
+          <ul>
             <li>The point \((1-\lambda)a + \lambda b\) &nbsp; is the <b>\(\lambda\)-midpoint</b> of \(a\) and \(b\).</li>
-            <li>This makes sense on any Riemannian manifold (indeed, on any <b>geodesic metric space</b>).</li>
-            <li class="fragment">Brunn-Minkowski-type inequalities on a Riemannian manifold characterize lower Ricci curvature bounds <span style="color: #69919b ; font-size: .8em">(Cordero-Erausquin, McCann & Schmuckenschläger '01, Sturm '06, Magnabosco, Portinale, Rossi '22)</span></li>
+            <li class = "fragment">Makes sense on any Riemannian manifold.</li>
+            <li class="fragment">Brunn-Minkowski characterizes lower Ricci curvature bounds <span style="color: #69919b ; font-size: .8em">(Cordero-Erausquin, McCann & Schmuckenschläger '01, Sturm '06, Magnabosco, Portinale, Rossi '22)</span></li>
             <li class="fragment">Metric measure spaces <span style="color: #69919b ; font-size: .8em">(Sturm '06, Lott-Villani '07)</span></li>
-            <li class="fragment">Sub-Riemannian manifolds <span style="color: #69919b ; font-size: .8em">(Barilari, Rizzi '19, Barilari, Mondino '22)</span></li>
-            <li class="fragment">Lorentzian spaces <span style="color: #69919b ; font-size: .8em">(McCann '20, Cavalletti-Mondino '20, ...)</span></li>
+            <li class="fragment">Sub-Riemannian <span style="color: #69919b ; font-size: .8em">(Barilari, Rizzi '19, Barilari, Mondino '22)</span></li>
+            <li class="fragment">Lorentzian <span style="color: #69919b ; font-size: .8em">(McCann '20, Cavalletti-Mondino '20, ...)</span></li>
           </ul>
-        </div>
-      </foreignObject>
-    </g>
-        <line data-id="left-conn" x1="300" y1="160" x2="130" y2="300" stroke="black"  stroke-width="1.2" marker-end="url(#arrow)" opacity="0"/>
-    <line data-id="right-conn" x1="300" y1="160" x2="500" y2="300" stroke="black"   stroke-width="1.2" marker-end="url(#arrow)" opacity="0"/>
-    <defs>
-      <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse">
-        <path d="M0,0 L10,5 L0,10 z" fill="black"/>
-      </marker>
-    </defs>
-  </svg>
+      </div>
+  </div>
 </section>
 
 
-<section data-auto-animate>
-  <svg viewBox="0 0 600 400" style="width:100%;height:auto;display:block;margin:auto;font-family:'Alegreya Sans',sans-serif">
-    <g data-id="sum">
-        <rect x="200" y="80" width="200" height="60" rx="14" fill="#7FAEBA"/>
-        <text x="300" y="110" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Averaging</text>
-    </g>
-    <g data-id="bypanel"> 
-      <rect x="50" y="150" width="500" height="60" rx="16" fill="#7FAEBA" opacity="0.15" stroke="#7FAEBA"/>
-      <text x="300" y="180" text-anchor="middle" dominant-baseline="middle" style="font-size:.8em;">By <tspan fill="#69919b">summation</tspan></text>
-    </g>
-  </svg>
+
+<section data-auto-animate data-auto-animate-id="bm">
+  <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
+
+    <!-- Top (kept for matching, hidden) -->
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%; opacity: 0">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
+        Brunn - Minkowski
+      </div>
+    </div>
+
+    <!-- Volume -->
+    <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: 0">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Volume
+      </div>
+    </div>
+
+    <!-- Averaging -->
+    <div data-id="sum" style="position:absolute;left:27.5%;top:27.5%;width:45%;height:20%;">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Averaging
+      </div>
+    </div>
+
+    <!-- Panel under Volume -->
+    <div data-id="panel" style="position:absolute;left:5%;top:52.5%;width:90%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
+    <div style="position:absolute;left:10%;top:53%;width:80%;height:20%;line-height:1.4;text-align:center;font-size:1.4em;">
+          <p data-id: "bywhat"> Using <span style="color: #69919b;">a linear structure</span></p>
+      </div>
+  </div>
 </section>
 
-<section data-auto-animate>
-  <svg viewBox="0 0 600 400" style="width:100%;height:auto;display:block;margin:auto;font-family:'Alegreya Sans',sans-serif">
-    <g data-id="sum">
-        <rect x="200" y="80" width="200" height="60" rx="14" fill="#7FAEBA"/>
-        <text x="300" y="110" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Averaging</text>
-    </g>
-    <g data-id="bypanel">
-      <rect x="50" y="150" width="500" height="60" rx="16" fill="#7FAEBA" opacity="0.15" stroke="#7FAEBA"/>
-      <text x="300" y="180" text-anchor="middle" dominant-baseline="middle" style="font-size:.8em;">By <tspan fill="#69919b">a metric</tspan></text>
-    </g>
-  </svg>
+<section data-auto-animate data-auto-animate-id="bm">
+  <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
+
+    <!-- Top (kept for matching, hidden) -->
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%; opacity: 0">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
+        Brunn - Minkowski
+      </div>
+    </div>
+
+    <!-- Volume -->
+    <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: 0">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Volume
+      </div>
+    </div>
+
+    <!-- Averaging -->
+    <div data-id="sum" style="position:absolute;left:27.5%;top:27.5%;width:45%;height:20%;">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Averaging
+      </div>
+    </div>
+
+    <!-- Panel under Volume -->
+    <div data-id="panel" style="position:absolute;left:5%;top:52.5%;width:90%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
+    <div style="position:absolute;left:10%;top:53%;width:80%;height:20%;line-height:1.4;text-align:center;font-size:1.4em;">
+          <p data-id: "bywhat"> Using <span style="color: #69919b;">a metric</span></p>
+      </div>
+  </div>
 </section>
 
-<section data-auto-animate>
-  <svg viewBox="0 0 600 400" style="width:100%;height:auto;display:block;margin:auto;font-family:'Alegreya Sans',sans-serif">
-    <g data-id="sum">
-        <rect x="200" y="80" width="200" height="60" rx="14" fill="#7FAEBA"/>
-        <text x="300" y="110" text-anchor="middle" dominant-baseline="middle" style="font-size:.9em">Averaging</text>
-    </g>
-    <g data-id="bypanel">
-      <rect x="50" y="150" width="500" height="60" rx="16" fill="#7FAEBA" opacity="0.15" stroke="#7FAEBA"/>
-      <text x="300" y="180" text-anchor="middle" dominant-baseline="middle" style="font-size:.8em;">By <tspan fill="#69919b">a principle of least action?</tspan></text>
-    </g>
-  </svg>
-</section>
+<section data-auto-animate data-auto-animate-id="bm">
+  <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
 
+    <!-- Top (kept for matching, hidden) -->
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%; opacity:0">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
+        Brunn - Minkowski
+      </div>
+    </div>
+
+    <!-- Volume -->
+    <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: 0">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Volume
+      </div>
+    </div>
+
+    <!-- Averaging -->
+    <div data-id="sum" style="position:absolute;left:27.5%;top:27.5%;width:45%;height:20%;">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Averaging
+      </div>
+    </div>
+
+    <!-- Panel under Volume -->
+    <div data-id="panel" style="position:absolute;left:5%;top:52.5%;width:90%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
+    <div style="position:absolute;left:10%;top:53%;width:80%;height:20%;line-height:1.4;text-align:center;font-size:1.4em;">
+          <p data-id: "bywhat"> Using <span style="color: #69919b;">a principle of least action?</span></p>
+      </div>
+  </div>
+</section>
 
 
   <section data-background-color="#7FAEBA">
@@ -269,13 +497,13 @@
     <p>
       A <b> Lagrangian </b> \(L\) on a manifold \(M\) is a smooth function on the tangent bundle \(TM\). 
     </p>
-    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🥴 A Lagrangian assigns a value to each position and velocity.</p>
+    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 A Lagrangian assigns a value to each position and velocity.</p>
     <p class = "fragment">
       The <b> action </b> of a curve \(\gamma:[0,T]\to M \) &nbsp is:
       \[\mathrm{A}(\gamma) : = \int_0^T L(\dot\gamma(t))dt.\]
     </p>
     <p class = "fragment">A <b> minimizing extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints.</p>
-    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🥴 An extremal is a path for which the integral of the values assigned by 
+    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 An extremal is a path for which the integral of the values assigned by 
       \(L\) over the entire journey is the smallest possible.</p>
     </div>
   </section>
@@ -303,7 +531,7 @@
       \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]</p>
       <p class = "fragment">The tangent vector where the above supremum is achieved is denoted by \(\mathcal{L}p\), and we call the map \(\mathcal{L} : T^*M \to T_xM\) the <b> Legendre transform </b> associated to \(L\).</p>
       <p  class = "fragment">The <b> energy </b> is the function \(E : = H \circ \mathcal{L}\) &nbsp on \(TM\). If \(\gamma\) is a minimizing extremal then \(E(\dot\gamma)\equiv 0\) &nbsp;.</p>
-      <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🥴 The Hamiltonian is essentially the energy and is conserved along extremals.</p>
+      <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 The Hamiltonian is essentially the energy and is conserved along extremals.</p>
     </div>
     
   </section>
@@ -315,7 +543,7 @@
     <p class = "fragment">The <b>Hamilton-Jacobi equation</b> is
     \[H(du) = 0.\]
     If \(u\) is a solution to the H-J equation, then the integral curves of \(u\) are zero-energy extremals.</p>
-    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🥴 Once we fix a Lagrangian, we have natural notions of gradient and Laplacian.</p>
+    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 Once we fix a Lagrangian, we have natural notions of gradient and Laplacian.</p>
     </div>
   </section>
 
@@ -383,7 +611,7 @@
       <p class="fragment">
       Such \(T\) is called an <b> optimal transport map </b>.
       </p>
-      <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🥴 Optimal transport seeks the most cost-effecient way to redistribute mass, goods, etc. from one configuration to another. </p>
+      <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🔮 Optimal transport seeks the most cost-efficient way to redistribute mass, goods, etc. from one configuration to another. </p>
     </div>
   </section>
 
@@ -394,12 +622,13 @@
       where the infimum is over all curves \(\gamma\) &nbsp joining \(x_0\) to \(x_1\), and \(\mathrm{A}\) is the action. 
       <br>
       <p class = "fragment">If \(L\) is a Riemannian metric, then \(\mathrm{c}\) is distance.</p>
+      <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🔮 A manifold endowed with a Lagrangian provides a natural framework for optimal transport problems. </p>
     </div>
   </section>
 
   <section>
     <div style="text-align: left">
-      <p><b>Theorem:</b>
+      <p><b>Theorem</b> (citations): 
           <span style="color: gray;">Under classical assumptions on the Lagrangian \(L\),</span> for every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), there exists an optimal transport map \(T\) from \(\mu_0\) to \(\mu_1\). 
       </p>
     </div>
@@ -427,23 +656,23 @@
 
 
   <section>
-    <div style="text-align: left; font-size: .8em">
+    <div style="text-align: left; font-size: .9em">
       <p> In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that </p>
           <ul>
-            <li> \(T_0\) is the identity and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\);</li>
+            <li> \(T_0 = \mathrm{Id}\) &nbsp; and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\);</li>
             <li> Each \(T_\lambda\) is an optimal transport map from \(\mu_0\) &nbsp to \[\mu_\lambda : = (T_\lambda)_*\mu_0.\] </li>
-            <li> For each \(x \in M\), the curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is a minimizing extremal.</li>
+            <li> \(\mu_0\)-a.e. curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is a minimizing extremal.</li>
             <li> There exists a viscosity subsolution \(u\) to the Hamilton-Jacobi equation, and \(\ell : M \to [0,\infty)\) &nbsp such that 
                 \[T_\lambda = \pi\circ\Phi_{\lambda\ell}\circ du \qquad \text{\(\mu_0\) -a.e.}\]
             </li>
           </ul>
-      <p>The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).</p>
+      The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).
     </div>
   </section>
 
   <section>
-    🥴
-    <div style="text-align: left; font-size: .8em">
+    🔮
+    <div style="text-align: left; font-size: .9em">
     <p style="color: #7FAEBA">  We can solve OT for costs arising from reasonable Lagrangians.</p>
     <ul>
       <li style="color: #7FAEBA" class="fragment">The solution describes not only where each piece of goods should end up, but also <i>along what path</i> it should be transported. </li>
@@ -463,9 +692,9 @@
     <div style="text-align: left;">
     <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
     <p> A <b> Riemannian manifold </b> is a smooth manifold equipped with a <b> Riemannian metric </b>, which is a smooth choice of inner product on each tangent space. </p>
-    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🥴 A Riemannian manifold is a space which looks like Euclidean space, but has a different way of measuring distances and angles. </p>
+    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🔮 A Riemannian manifold is a metric space which is Euclidean to first order. </p>
     <p class="fragment"> A <b> geodesic </b> on a Riemannian manifold is (at least locally) the shortest path between a pair of points on the manifold. </p>
-    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🥴 Geodesics are like straight lines, but on a curved space. </p>
+    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🔮 Geodesics are the Riemannian analogue of straight lines. </p>
     </div>
 
 
@@ -474,13 +703,13 @@
   <section>
     <div style="text-align: left; font-size: .8em;">
     <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
-    The <b> Ricci curvature</b> of a Riemannian metric is a certain trace of the <b> Riemann Curvature tensor</b>, which accounts for the way volume is distorted along families of geodesics. </li>
+    The <b> Ricci curvature</b> of a Riemannian metric is a certain trace of the <b> Riemann Curvature tensor</b>. It accounts for the way volume is distorted along families of geodesics. </li>
 
     <p class = "fragment">
     If \(v\) is a tangent vector at a point \(p \in M\), and \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_p = v \qquad \text{ and } \qquad \nabla V\vert_p = 0,\] then 
     <span style="color: #69919b">\(V\mathrm{div} V\vert_p = -\mathrm{Ric}(v)\) &nbsp;  .</span><span class = "fragment"> If \(V = \nabla u\) &nbsp; then <span style="color: #69919b">\((d\mathbf{L}u)(\nabla u)\vert_p = -\mathrm{Ric}(v)\) &nbsp;</span> &nbsp;.</span></p>
 
-    <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🥴 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
+    <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🔮 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
     </div>
   </section>
 
@@ -509,20 +738,26 @@
           style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; z-index:-1; opacity:0.5; transform: scale(1.2); " >
   </iframe>
     <div style="text-align: left; font-size: .7em;">
-      <p><b>Theorem</b> (McCann, Cordero-Eruasquin-McCann-Schmuckenschläger '01, Sturm '06, Lott-Villani '07): Let \((M,g)\) &nbsp; be a complete Riemannian manifold. The following are equivalent:
+      <p><b>Theorem</b> (McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, Sturm '06, Lott-Villani '07): Let \((M,g)\) &nbsp; be a complete Riemannian manifold. TFAE:
         <ul>
           <li> \(\mathrm{Ric}_g \ge 0\) &nbsp;.</li>
           <li> For every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measure on \(M\), the function
             \[\lambda \mapsto \int_M \log f_\lambda d\mu_\lambda\]
-            is convex on \([0,1]\), &nbsp; where \[\mu_\lambda = f_\lambda\mathrm{Vol}_g\] is the displacement interpolation between \(\mu_0\) and \(\mu_1\) <b> with squared distance cost</b>.
+            is convex on \([0,1]\), &nbsp; where \[\mu_\lambda = f_\lambda\mathrm{Vol}_g\] is the displacement interpolation between \(\mu_0\) and \(\mu_1\) <b> with cost \(d^2\)</b>.
           </li>
         </ul>
       </p>
+      <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🔮 In nonnegative Ricci curvature, the intermediate measures in the displacement interpolation are more "spread out" than the measures at the endpoints. </p>
     </div>
   </section>
 
   <section>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Ricci curvature and optimal transport</h3>
+    <ul>
+      <li class = "fragment">Arbitrary lower Ricci curvature and upper dimension bounds <span style="color: #69919b ; font-size: .8em">(Cordero-Eruasquin-McCann-Schmuckenschläger '01)</span></li>
+      <li class = "fragment">Synthetic curvature-dimension bounds via optimal transport<span style="color: #69919b ; font-size: .8em">(Sturm '06, Lott-Villani '07)</span></li>
+      <li class = "fragment">Metric measure space, Lorentzian spaces, Sub-Riemannian manifolds</li>
+    </ul>
   </section>
 
   <section data-background-color="#7FAEBA">
@@ -552,147 +787,181 @@
   </div>
   </section>
 
-<section>
-  <h3 style="color: #7FAEBA; font-size: .85em">Main result: Displacement Convexity for Lagrangians</h3>
-  <div style="text-align: left; font-size: .8em;">
-    <p><b>Theorem </b>(A. '25): Let \(N \in [n,\infty]\)&nbsp;. The following are equivalent:</p>
-    <ul>
-      <li class = "fragment"> \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\) &nbsp;.</li>
-      <li class = "fragment"> For every local solution \(u\) to the H-J equation \(H(du) = 0\) &nbsp;,
-        \[
-          (d\mathbf{L}u)(\nabla u) + \frac{(\mathbf{L}u)^2}{N-1} \le 0.
-        \]
-      <li class = "fragment"> For every \(\mu_0,\mu_1\in\mathcal{P}_1(L)\) &nbsp; there exists a displacement interpolation \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\)&nbsp; between \(\mu_0\) and \(\mu_1\) such that the function
-        \(
-        \lambda \mapsto \mathrm{S}_{N}[\mu_\lambda|\mu]
-        \)
-        is convex.
-      </li>
-    </ul>
-    <div class = "fragment">
-    <p style="color: #6c939e; font-size: .8em">
-      \[
-      \mathrm{S}_N[\mu_0|\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
-      \quad (1 \lt N \lt \infty) \quad \text{and} \quad 
-      \mathrm{S}_{\infty}[\mu_0|\mu] := \int_M \log f_0 \, d\mu_0.
-      \]
-    </p>
-    <p style="color:#888; font-size: .7em">
-      \[
-      \mathcal{P}_1(L):= \left\{
-      \begin{array}{c}
-      \text{Absolutely continuous Borel probability measures \(\mu_0\) on \(M\)}\\
-      \text{such that \(\int(|\mathrm{c}(x_0,\cdot)|+|\mathrm{c}(\cdot,x_0)|)d\mu_0 \lt \infty\) for some \(x_0 \in M\)}
-      \end{array}
-      \right\}.
-      \]
-    </p>
+  <section>
+    <h3 style="color: #7FAEBA; font-size: 1em; text-align: left;">Weighted Ricci curvature for Lagrangians</h3>
+    <div style="text-align: left; font-size: .9em;">
+      <p>Given the above data, we may construct:</p>
+      <ul>
+        <li class = "fragment">The <b>Ricci curvature</b> \(\mathrm{Ric}_L : TM\setminus\mathbf{0} \to \mathbb{R}\) &nbsp; &nbsp;, which coincides with the classical Ricci curvature for Riemannian and Finslerian manifolds.</li>
+        <li class = "fragment">The <b>weighted Ricci curvature</b> \(\mathrm{Ric}_{L,\mu,N}\), which depends on a parameter \(N \in (-\infty,\infty]\setminus \{1\}\) &nbsp; &nbsp; and which also coincides with the weighted (Bakry-Émery) Ricci curvature for Riemannian/Finslerian manifolds.</li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-   <h3 style="color: #7FAEBA; font-size: .9em">The Brunn-Minkowski inequality for Lagrangians</h3>
-  <div style="text-align: left; font-size: .8em;">
-    <p><b>Theorem </b>(A. '25):
-        Let \(N \in [n,\infty]\)&nbsp; , let \(A_0,A_1 \subseteq M\) &nbsp;  be Borel sets of positive measure and let \(0 \lt \lambda \lt 1 \)&nbsp; . Set
-        \[
-        A_\lambda : = \left\{\gamma(\lambda \ell) \, \bigg\vert \, \begin{array}{c} \gamma:[0,\ell] \to M \, \,  \text{ is a minimizing extremal,} \\ \gamma(0) \in A_0, \, \,\gamma(\ell) \in A_1\end{array}\right\}.
-        \]
-        If \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\)&nbsp; , then
-        \[
-            \mu(A_\lambda) \ge 
-            \begin{cases}
-                \left((1-\lambda)\cdot\mu(A_0)^{1/N} + \lambda \cdot \mu(A_1)^{1/N}\right)^N & N \lt \infty\\
-                \mu(A_0)^{1-\lambda}\cdot\mu(A_1)^\lambda & N = \infty.
-            \end{cases}
-        \]
-    </p>
-  </div>
-</section>
+  <section>
+    <h3 style="color: #7FAEBA; font-size: 1em;">The mechanical Lagrangian</h3>
+    <div style = "text-align: left; font-size: .8em;">
+      \[L = g/2 + 1/2 + e^{-2V}\]
+      where \(g\) is a Riemannian metric and \(V\) is a smooth function.
+      \[ \mathrm{Ric}_{L,\mathrm{Vol}_g,N} = \mathrm{Ric}_g  + \Delta V\cdot g -\left(1+\frac{1}{N-n}\right)\cdot (dV)^2 \qquad \text{ on } E^{-1}(0).\]
+      <p class = "fragment">For the many-body Lagrangian, \(\mathrm{Ric}_{L,\mathrm{Vol},\infty} \ge 0\).</p>
+    </div>
+  </section>
 
-<section>
-  <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
+  <section>
+    <h3 style="color: #7FAEBA; font-size: 1em;">The magnetic Lagrangian</h3>
+    <div style = "text-align: left; font-size: .8em;">
+      \[L = g/2 + 1/2 - \eta\]
+      where \(g\) is a Riemannian metric and \(\eta\) is a one-form.
+          \[\mathrm{Ric}_{\mathrm{Vol}_g,N} = \mathrm{Ric}_g - \mathrm{div}_g\mathrm{Y} + \frac14|\mathrm{Y}|_g^2  + \frac12 \, g\circ \mathrm{Y} \qquad \text{ on } \qquad E^{-1}(0),\]
+      where \(\mathrm{Y}\) is defined by
+      \[\left\langle\mathrm{Y}v,w\right\rangle = d\eta(v,w), \qquad v,w \in T_xM, \, \, x \in M.\]
+    </div>
+  </section>
+
+  <section>
+    <h3 style="color: #7FAEBA; font-size: .85em">Main result: Displacement Convexity for Lagrangians</h3>
+    <div style="text-align: left; font-size: .8em;">
+      <p><b>Theorem </b>(A. '25): Let \(N \in [n,\infty]\)&nbsp;. The following are equivalent:</p>
+      <ul>
+        <li class = "fragment"> \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\) &nbsp;.</li>
+        <li class = "fragment"> For every local solution \(u\) to the H-J equation \(H(du) = 0\) &nbsp;,
+          \[
+            (d\mathbf{L}u)(\nabla u) + \frac{(\mathbf{L}u)^2}{N-1} \le 0.
+          \]
+        <li class = "fragment"> For every \(\mu_0,\mu_1\in\mathcal{P}_1(L)\) &nbsp; there exists a displacement interpolation \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\)&nbsp; between \(\mu_0\) and \(\mu_1\) such that the function
+          \(
+          \lambda \mapsto \mathrm{S}_{N}[\mu_\lambda|\mu]
+          \)
+          is convex.
+        </li>
+      </ul>
+      <div class = "fragment">
+      <p style="color: #6c939e; font-size: .8em">
+        \[
+        \mathrm{S}_N[\mu_0|\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
+        \quad (1 \lt N \lt \infty) \quad \text{and} \quad 
+        \mathrm{S}_{\infty}[\mu_0|\mu] := \int_M \log f_0 \, d\mu_0.
+        \]
+      </p>
+      <p style="color:#888; font-size: .7em">
+        \[
+        \mathcal{P}_1(L):= \left\{
+        \begin{array}{c}
+        \text{Absolutely continuous Borel probability measures \(\mu_0\) on \(M\)}\\
+        \text{such that \(\int(|\mathrm{c}(x_0,\cdot)|+|\mathrm{c}(\cdot,x_0)|)d\mu_0 \lt \infty\) for some \(x_0 \in M\)}
+        \end{array}
+        \right\}.
+        \]
+      </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3 style="color: #7FAEBA; font-size: .9em">The Brunn-Minkowski inequality for Lagrangians</h3>
+    <div style="text-align: left; font-size: .8em;">
+      <p><b>Theorem </b>(A. '25):
+          Let \(N \in [n,\infty]\)&nbsp; , let \(A_0,A_1 \subseteq M\) &nbsp;  be Borel sets of positive measure and let \(0 \lt \lambda \lt 1 \)&nbsp; . Set
+          \[
+          A_\lambda : = \left\{\gamma(\lambda \ell) \, \bigg\vert \, \begin{array}{c} \gamma:[0,\ell] \to M \, \,  \text{ is a minimizing extremal,} \\ \gamma(0) \in A_0, \, \,\gamma(\ell) \in A_1\end{array}\right\}.
+          \]
+          If \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\)&nbsp; , then
+          \[
+              \mu(A_\lambda) \ge 
+              \begin{cases}
+                  \left((1-\lambda)\cdot\mu(A_0)^{1/N} + \lambda \cdot \mu(A_1)^{1/N}\right)^N & N \lt \infty\\
+                  \mu(A_0)^{1-\lambda}\cdot\mu(A_1)^\lambda & N = \infty.
+              \end{cases}
+          \]
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
+      <div style="text-align: left; font-size: .7em;">
+      <p>Let \(\mathbb{C}\mathbf{H}^d\)&nbsp; denote the <b>complex hyperbolic space</b> of complex dimension \(d\)&nbsp;. 
+      <br>  
+      A <b>horocycle</b> is a curve \(\gamma\)&nbsp; satisfying
+      \[
+      \nabla_{\dot\gamma}\dot\gamma = \mathbf{J}\dot\gamma,
+      \]
+      where \(\mathbf{J}\)&nbsp; is the complex structure. For every  \(x,y \in \mathbb{C}\mathbf{H}^d\)&nbsp; there exists a unique horocycle \(\gamma:[0,T]\to \mathbb{C}\mathbf{H}^d\)&nbsp; satisfying \(\gamma(0) = x\)&nbsp; and \(\gamma(T) = y\)&nbsp;; it is contained in the unique complex geodesic (totally-geodesic copy of the hyperbolic plane) containing \(x\)&nbsp; and \(y\)&nbsp;.</p>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 60 800 320">
+      <!-- teal horizontal line (intersects big circle) -->
+      <line x1="0" y1="150" x2="800" y2="150" stroke="#7FAEBA" stroke-width="2"/>
+
+      <!-- tangent circles -->
+      <circle cx="80"  cy="290" r="10" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+      <circle cx="180" cy="260" r="40" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+      <circle cx="400" cy="200" r="100" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+      <circle cx="570" cy="285" r="15" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+      <circle cx="700" cy="270" r="30" stroke="#7FAEBA" stroke-width="2" fill="none"/>
+
+      
+      <!-- black horizontal line (tangency line) -->
+      <line x1="0" y1="300" x2="800" y2="300" stroke="#000000" stroke-width="2"/>
+    </svg>
+
+  </section>
+
+  <section>
+    <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
     <div style="text-align: left; font-size: .7em;">
-    <p>Let \(\mathbb{C}\mathbf{H}^d\)&nbsp; denote the <b>complex hyperbolic space</b> of complex dimension \(d\)&nbsp;. 
-    <br>  
-    A <b>horocycle</b> is a curve \(\gamma\)&nbsp; satisfying
-    \[
-    \nabla_{\dot\gamma}\dot\gamma = \mathbf{J}\dot\gamma,
-    \]
-    where \(\mathbf{J}\)&nbsp; is the complex structure. For every  \(x,y \in \mathbb{C}\mathbf{H}^d\)&nbsp; there exists a unique horocycle \(\gamma:[0,T]\to \mathbb{C}\mathbf{H}^d\)&nbsp; satisfying \(\gamma(0) = x\)&nbsp; and \(\gamma(T) = y\)&nbsp;; it is contained in the unique complex geodesic (totally-geodesic copy of the hyperbolic plane) containing \(x\)&nbsp; and \(y\)&nbsp;.</p>
-  </div>
-  <svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 60 800 320">
-    <!-- teal horizontal line (intersects big circle) -->
-    <line x1="0" y1="150" x2="800" y2="150" stroke="#7FAEBA" stroke-width="2"/>
+      <p>
+      <b>Theorem</b> (A.-Klartag '22, A. '25): &nbsp;
+      Let \(A_0,A_1 \subseteq \mathbb{C}\mathbf{H}^d\)&nbsp; be Borel sets of positive measure and let \(0\le\lambda\le 1\)&nbsp;. Denote by \(A_\lambda\)&nbsp; the set of points of the form \(\gamma(\lambda \ell)\)&nbsp;, where \(\gamma:[0,\ell]\to \mathbb{C}\mathbf{H}^d\)&nbsp; is a unit-speed horocycle satisfying \(\gamma(0) \in A_0\)&nbsp; and \(\gamma(\ell) \in A_1\)&nbsp;. 
+      \[\implies \qquad 
+      \mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},
+      \]
+      where \(\mathrm{Vol}\)&nbsp; denotes the hyperbolic volume measure and \(n = 2d\)&nbsp;.</p>
+      </div>
+      <img src="horosum_text.png" width = 600>
+  </section>
 
-    <!-- tangent circles -->
-    <circle cx="80"  cy="290" r="10" stroke="#7FAEBA" stroke-width="2" fill="none"/>
-    <circle cx="180" cy="260" r="40" stroke="#7FAEBA" stroke-width="2" fill="none"/>
-    <circle cx="400" cy="200" r="100" stroke="#7FAEBA" stroke-width="2" fill="none"/>
-    <circle cx="570" cy="285" r="15" stroke="#7FAEBA" stroke-width="2" fill="none"/>
-    <circle cx="700" cy="270" r="30" stroke="#7FAEBA" stroke-width="2" fill="none"/>
-
-    
-    <!-- black horizontal line (tangency line) -->
-    <line x1="0" y1="300" x2="800" y2="300" stroke="#000000" stroke-width="2"/>
-  </svg>
-
-</section>
-
-<section>
-  <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
-  <div style="text-align: left; font-size: .8em;">
-    <p>
-    <b>Theorem</b> (A. '25): &nbsp;
-    Let \(A_0,A_1 \subseteq \mathbb{C}\mathbf{H}^d\)&nbsp; be Borel sets of positive measure and let \(0\le\lambda\le 1\)&nbsp;. Denote by \(A_\lambda\)&nbsp; the set of points of the form \(\gamma(\lambda \ell)\)&nbsp;, where \(\gamma:[0,\ell]\to \mathbb{C}\mathbf{H}^d\)&nbsp; is a unit-speed horocycle satisfying \(\gamma(0) \in A_0\)&nbsp; and \(\gamma(\ell) \in A_1\)&nbsp;. Then
-    \[
-    \mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},
-    \]
-    where \(\mathrm{Vol}\)&nbsp; denotes the hyperbolic volume measure and \(n = 2d\)&nbsp;.</p>
-    </div>
-</section>
-
-<section style="
-  position: relative;
-  background: url('media/Hopf_Fibration.png') center/cover no-repeat;
-  min-height: 400px;
-  background-size: contain;
-">
-  <div style="
+  <section style="
     position: relative;
-    z-index: 1;
-    font-size: .7em;
+    /* background: url('media/Hopf_Fibration.png') center/cover no-repeat; */
+    min-height: 400px;
+    background-size: contain;
   ">
-  <h2 style="color: #7FAEBA; font-size: 1em;">Example: Brunn-Minkowski for contact magnetic geodesics</h2>
-  <p>
-    Let \(S^{2d+1} = \{z \in \mathbb{C}^{d+1}\, \mid \, |z|=1\}\) &nbsp;&nbsp; and let \(0 \le s \lt 1\). &nbsp; We call <b>contact magnetic geodesics of strength \(s\)</b> the minimizing extremals of the Lagrangian
-    \[L(v) : = \frac{|v|_g^2 + 1}{2} - s\cdot \eta(v),\]
-    where \(g\) is the round metric and \(\eta\) is the <b>contact one-form</b>
-    \[\eta(v) = \mathrm{Re}\left\langle iz,v\right\rangle, \qquad v \in T_zS^{2d+1}, \,\, z \in S^{2d+1}.\]
-    </p>
-    <ul>
-        <li> Contact magnetic geodesics of strength $0$ are great circles.</li>
-        <li> Reeb trajectories  are contact magnetic geodesics of strength $s$ for all \(0 \le s \lt 1\).</li>
-    </ul>
-  </div>
-  <div style="
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.8); /* white with 40% opacity */
-    z-index: 0;
-  "></div>
+    <div style="
+      position: relative;
+      z-index: 1;
+      font-size: .7em;
+      text-align: left;
+    ">
+    <h2 style="color: #7FAEBA; font-size: 1em;">Example: Brunn-Minkowski for contact magnetic geodesics</h2>
+    <p>
+      Let \(S^{2d+1} = \{z \in \mathbb{C}^{d+1}\, \mid \, |z|=1\}\) &nbsp;&nbsp; and let \(0 \le s \lt 1\). &nbsp; We call <b>contact magnetic geodesics of strength \(s\)</b> the minimizing extremals of the Lagrangian
+      \[L(v) : = \frac{|v|_g^2 + 1}{2} - s\cdot \eta(v),\]
+      where \(g\) is the round metric and \(\eta\) is the <b>contact one-form</b>
+      \[\eta(v) = \mathrm{Re}\left\langle iz,v\right\rangle, \qquad v \in T_zS^{2d+1}, \,\, z \in S^{2d+1}.\]
+      </p>
+      <ul>
+          <li class = "fragment"> Contact magnetic geodesics of strength $0$ are great circles.</li>
+          <li class = "fragment"> Reeb trajectories  are contact magnetic geodesics of strength $s$ for all \(0 \le s \lt 1\).</li>
+      </ul>
+    </div>
+    <div style="
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.8); /* white with 40% opacity */
+      z-index: 0;
+    "></div>
 
-</section>
+  </section>
 
-<section>
-  <div style="text-align: left; font-size: .8em;">
-    <p><b>Theorem</b></b> (A. '25):
-    Let $A_0,A_1 \subseteq S^{2d+1}$&nbsp; be Borel sets of positive measure and let $0\le\lambda\le 1$&nbsp;. Denote by $A_\lambda$ the set of points of the form $\gamma(\lambda \ell)$, where $\gamma:[0,\ell]\to S^{2d+1}$ &nbsp; is a unit-speed contact magnetic geodesic of strength $s$ satisfying $\gamma(0) \in A_0$ and $\gamma(\ell) \in A_1$. Then
-    $$\mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},$$
-    where $\mathrm{Vol}$ &nbsp; denotes the spherical volume measure and $n = 2d+1$.
-    </p>
-</section>
+  <section>
+    <div style="text-align: left; font-size: .8em;">
+      <p><b>Theorem</b></b> (A. '25):
+      Let $A_0,A_1 \subseteq S^{2d+1}$&nbsp; be Borel sets of positive measure and let $0\le\lambda\le 1$&nbsp;. Denote by $A_\lambda$ the set of points of the form $\gamma(\lambda \ell)$, where $\gamma:[0,\ell]\to S^{2d+1}$ &nbsp; is a unit-speed contact magnetic geodesic of strength $s$ satisfying $\gamma(0) \in A_0$ and $\gamma(\ell) \in A_1$. Then
+      $$\mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},$$
+      where $\mathrm{Vol}$ &nbsp; denotes the spherical volume measure and $n = 2d+1$.
+      </p>
+  </section>
 
 
 </div></div>
